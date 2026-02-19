@@ -21,7 +21,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           <a href="#" className="flex items-center gap-2">
-            <img src={tekinfraLogo} alt="TEKINFRA" className="h-8" />
+            <img src={tekinfraLogo} alt="TEKINFRA" className="h-10" />
           </a>
 
           {/* Desktop nav */}
