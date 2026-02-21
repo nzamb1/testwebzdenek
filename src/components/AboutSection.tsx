@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FileText, Search, MessageSquare } from "lucide-react";
+import { FileText, Search, MessageSquare, Briefcase, Zap, Sparkles } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const AboutSection = () => {
@@ -9,12 +9,13 @@ const AboutSection = () => {
     { icon: FileText, titleKey: "about.uc1.title", descKey: "about.uc1.desc" },
     { icon: Search, titleKey: "about.uc2.title", descKey: "about.uc2.desc" },
     { icon: MessageSquare, titleKey: "about.uc3.title", descKey: "about.uc3.desc" },
+    { icon: Briefcase, titleKey: "about.uc4.title", descKey: "about.uc4.desc" },
   ];
 
   return (
     <section id="about" className="py-24 relative">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
           {/* Left: text */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -26,33 +27,61 @@ const AboutSection = () => {
               {t("about.title1")}{" "}
               <span className="gradient-text">{t("about.title2")}</span>
             </h2>
+
+            {/* Badges */}
+            <div className="flex flex-wrap gap-3 mb-8">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/60 border border-border/50 text-sm text-muted-foreground">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+                {t("about.badge1")}
+              </span>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-sm text-primary font-medium">
+                <Zap className="w-3.5 h-3.5" />
+                {t("about.badge2")}
+              </span>
+            </div>
+
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               {t("about.p1")}
             </p>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {t("about.p2prefix")}
-              <span className="text-foreground font-medium">{t("about.rag")}</span>
+              <span className="text-foreground font-semibold">{t("about.p2bold")}</span>
               {t("about.p2suffix")}
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-6">
+            <p className="text-muted-foreground leading-relaxed mb-8">
               {t("about.p3prefix")}
-              <span className="text-foreground font-medium">{t("about.qlora")}</span>
+              <span className="text-foreground font-semibold">{t("about.p3bold")}</span>
               {t("about.p3suffix")}
             </p>
-            <p className="text-sm text-muted-foreground/70 font-mono mb-6">
-              {t("about.p4")}
-            </p>
 
-            <div className="mt-8 p-5 rounded-xl bg-secondary/50 border border-border/50">
-              <p className="text-sm font-mono text-primary mb-2">{t("about.tekinfra.title")}</p>
-              <div className="flex flex-col gap-2">
-                <div>
-                  <span className="font-semibold text-foreground">{t("about.tekinfra.tek")}</span>{" "}
-                  <span className="text-muted-foreground">{t("about.tekinfra.tekDesc")}</span>
+            {/* TekInfra + Deployment box */}
+            <div className="p-5 rounded-xl bg-secondary/50 border border-border/50">
+              <p className="text-sm font-mono text-primary mb-3">{t("about.tekinfra.title")}</p>
+              <div className="flex flex-col gap-2 mb-5">
+                <div className="flex items-center gap-2">
+                  <span className="px-2.5 py-1 rounded-md bg-primary/15 text-primary text-sm font-semibold">{t("about.tekinfra.tek")}</span>
+                  <span className="text-sm text-muted-foreground">{t("about.tekinfra.tekDesc")}</span>
                 </div>
-                <div>
-                  <span className="font-semibold text-foreground">{t("about.tekinfra.infra")}</span>{" "}
-                  <span className="text-muted-foreground">{t("about.tekinfra.infraDesc")}</span>
+                <div className="flex items-center gap-2">
+                  <span className="px-2.5 py-1 rounded-md bg-primary/15 text-primary text-sm font-semibold">{t("about.tekinfra.infra")}</span>
+                  <span className="text-sm text-muted-foreground">{t("about.tekinfra.infraDesc")}</span>
+                </div>
+              </div>
+
+              <div className="border-t border-border/30 pt-4">
+                <p className="text-sm text-muted-foreground mb-3">{t("about.deploy.title")}</p>
+                <div className="flex flex-col gap-2">
+                  {[
+                    { num: "1", key: "about.deploy.s1", descKey: "about.deploy.s1d" },
+                    { num: "2", key: "about.deploy.s2", descKey: "about.deploy.s2d" },
+                    { num: "3", key: "about.deploy.s3", descKey: "about.deploy.s3d" },
+                  ].map((step) => (
+                    <div key={step.num} className="flex items-center gap-2 text-sm">
+                      <Sparkles className="w-4 h-4 text-primary/70 flex-shrink-0" />
+                      <span className="font-semibold text-foreground">{step.num} {t(step.key)}</span>
+                      <span className="text-muted-foreground">{t(step.descKey)}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
