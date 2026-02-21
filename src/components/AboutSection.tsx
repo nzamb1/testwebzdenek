@@ -45,8 +45,10 @@ const AboutSection = () => {
               {t("about.p2suffix")}
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              {t("about.p3prefix")}
-              <span className="text-foreground font-semibold">{t("about.p3bold")}</span>
+              {t("about.p3prefix1")}
+              <span className="text-foreground font-semibold">{t("about.p3bold1")}</span>
+              {t("about.p3mid")}
+              <span className="text-foreground font-semibold">{t("about.p3bold2")}</span>
               {t("about.p3suffix")}
             </p>
 
