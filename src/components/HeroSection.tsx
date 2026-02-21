@@ -1,8 +1,17 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ShieldCheck, Zap, Database } from "lucide-react";
+import { ArrowRight, Layers, ShieldCheck, Gauge } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+
+  const cards = [
+    { icon: Layers, labelKey: "hero.card1.label", descKey: "hero.card1.desc" },
+    { icon: ShieldCheck, labelKey: "hero.card2.label", descKey: "hero.card2.desc" },
+    { icon: Gauge, labelKey: "hero.card3.label", descKey: "hero.card3.desc" },
+  ];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated background grid */}
@@ -42,34 +51,29 @@ const HeroSection = () => {
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span className="text-sm font-medium text-muted-foreground font-mono">
-              B2B AI Infrastructure & Consulting
+              {t("hero.badge")}
             </span>
           </motion.div>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.08]">
-            AI asistent pro vaše
+            {t("hero.title1")}
             <br />
-            <span className="gradient-text">interní znalosti</span>
+            <span className="gradient-text">{t("hero.title2")}</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed">
-            Bez trénování od nuly. Bez úniku dat. Nasadíme AI, která čte vaše dokumenty
-            a odpovídá přesně na základě vašich firemních znalostí.
-          </p>
-
-          <p className="text-sm text-muted-foreground/70 max-w-xl mx-auto mb-10 font-mono">
-            Řešení pro technické i netechnické firmy — nasazení v řádu týdnů, ne měsíců.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+            {t("hero.desc")}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
             <Button size="lg" className="text-base px-8 py-6 glow-primary group" asChild>
               <a href="#contact">
-                Nezávazná konzultace
+                {t("hero.cta1")}
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
             <Button size="lg" variant="outline" className="text-base px-8 py-6" asChild>
-              <a href="#how-it-works">Jak to funguje</a>
+              <a href="#services">{t("hero.cta2")}</a>
             </Button>
           </div>
 
@@ -80,15 +84,11 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            {[
-              { icon: Database, label: "RAG architektura", desc: "AI čte dokumenty v reálném čase, data nezůstávají v modelu" },
-              { icon: ShieldCheck, label: "Data pod vaší kontrolou", desc: "On-premise nebo privátní cloud — žádná data třetím stranám" },
-              { icon: Zap, label: "Rychlé nasazení", desc: "Funkční řešení v řádu týdnů, ne měsíců" },
-            ].map((item, i) => (
+            {cards.map((item, i) => (
               <div key={i} className="glass-card rounded-xl p-5 text-left">
                 <item.icon className="w-5 h-5 text-primary mb-3" />
-                <div className="font-semibold text-sm mb-1">{item.label}</div>
-                <div className="text-xs text-muted-foreground leading-relaxed">{item.desc}</div>
+                <div className="font-semibold text-sm mb-1">{t(item.labelKey)}</div>
+                <div className="text-xs text-muted-foreground leading-relaxed">{t(item.descKey)}</div>
               </div>
             ))}
           </motion.div>

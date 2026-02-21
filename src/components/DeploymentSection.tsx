@@ -1,36 +1,29 @@
 import { motion } from "framer-motion";
 import { Building2, Server, Cloud } from "lucide-react";
-
-const options = [
-  {
-    icon: Server,
-    badge: "On-premise",
-    title: "Vaše vlastní infrastruktura",
-    description: "AI běží přímo na vašich serverech nebo v privátní síti. Data nikdy neopustí váš perimetr.",
-    points: [
-      "Plná kontrola nad daty i výpočetními zdroji",
-      "Vhodné pro firmy s přísnými compliance požadavky",
-      "Bez závislosti na externích cloudy poskytovatelích",
-      "GDPR a interní security policy compliance",
-    ],
-    accent: "primary",
-  },
-  {
-    icon: Cloud,
-    badge: "Privátní cloud",
-    title: "Dedikovaný cloud deployment",
-    description: "Využijeme existující cloudové modely (OpenAI, Azure, Mistral, Llama) v privátní konfiguraci s plnou kontrolou přístupu.",
-    points: [
-      "Rychlejší nasazení bez nutnosti vlastního HW",
-      "Flexibilní škálování podle potřeby",
-      "Podpora předních LLM modelů",
-      "Řízený přístup a auditovatelnost",
-    ],
-    accent: "accent",
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const DeploymentSection = () => {
+  const { t } = useLanguage();
+
+  const options = [
+    {
+      icon: Server,
+      badgeKey: "dep.onprem.badge",
+      titleKey: "dep.onprem.title",
+      descKey: "dep.onprem.desc",
+      pointKeys: ["dep.onprem.p1", "dep.onprem.p2", "dep.onprem.p3", "dep.onprem.p4"],
+      accent: "primary",
+    },
+    {
+      icon: Cloud,
+      badgeKey: "dep.cloud.badge",
+      titleKey: "dep.cloud.title",
+      descKey: "dep.cloud.desc",
+      pointKeys: ["dep.cloud.p1", "dep.cloud.p2", "dep.cloud.p3", "dep.cloud.p4"],
+      accent: "accent",
+    },
+  ];
+
   return (
     <section id="deployment" className="py-24 relative">
       <div className="absolute inset-0 opacity-5">
@@ -47,13 +40,11 @@ const DeploymentSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-sm font-mono text-primary mb-4 block">// NASAZENÍ</span>
+          <span className="text-sm font-mono text-primary mb-4 block">{t("dep.tag")}</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Flexibilní <span className="gradient-text">možnosti nasazení</span>
+            {t("dep.title1")} <span className="gradient-text">{t("dep.title2")}</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Vy rozhodujete, kde AI běží. Data zůstávají vždy pod vaší kontrolou — ať zvolíte jakoukoli variantu.
-          </p>
+          <p className="text-lg text-muted-foreground">{t("dep.desc")}</p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
@@ -71,18 +62,18 @@ const DeploymentSection = () => {
                   <opt.icon className={`w-5 h-5 text-${opt.accent}`} />
                 </div>
                 <div className={`px-3 py-1 rounded-md bg-${opt.accent}/10 border border-${opt.accent}/20`}>
-                  <span className={`text-${opt.accent} font-mono text-xs font-semibold`}>{opt.badge}</span>
+                  <span className={`text-${opt.accent} font-mono text-xs font-semibold`}>{t(opt.badgeKey)}</span>
                 </div>
               </div>
 
-              <h3 className="text-xl font-bold mb-3">{opt.title}</h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">{opt.description}</p>
+              <h3 className="text-xl font-bold mb-3">{t(opt.titleKey)}</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">{t(opt.descKey)}</p>
 
               <ul className="space-y-2.5">
-                {opt.points.map((point, j) => (
+                {opt.pointKeys.map((key, j) => (
                   <li key={j} className="flex items-start gap-2">
                     <Building2 className={`w-4 h-4 text-${opt.accent}/70 flex-shrink-0 mt-0.5`} />
-                    <span className="text-sm text-muted-foreground">{point}</span>
+                    <span className="text-sm text-muted-foreground">{t(key)}</span>
                   </li>
                 ))}
               </ul>

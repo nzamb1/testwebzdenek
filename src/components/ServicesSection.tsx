@@ -1,46 +1,19 @@
 import { motion } from "framer-motion";
 import { Database, Cpu, ShieldCheck, Gauge, LifeBuoy, Layers } from "lucide-react";
-
-const services = [
-  {
-    icon: Database,
-    title: "RAG implementace",
-    description: "Kompletní nasazení Retrieval-Augmented Generation nad vašimi firemními dokumenty. AI odpovídá výhradně z vašich dat, zdroje jsou transparentní a auditovatelné.",
-    tags: ["Vektorová databáze", "LLM", "Dokumenty"],
-  },
-  {
-    icon: Cpu,
-    title: "QLoRA fine-tuning",
-    description: "Prémiové doučení modelu na vaší terminologii a stylu. Snižuje halucinace a zlepšuje konzistenci odpovědí v doménově specifickém kontextu.",
-    tags: ["Fine-tuning", "PEFT", "Doménová adaptace"],
-  },
-  {
-    icon: Layers,
-    title: "Příprava dat a indexování",
-    description: "Strukturování, čištění a indexování vašich dokumentů do vektorové databáze. Základ spolehlivého RAG řešení.",
-    tags: ["ETL", "Embedding", "Chunking"],
-  },
-  {
-    icon: ShieldCheck,
-    title: "Bezpečné nasazení",
-    description: "On-premise nebo privátní cloud deployment s důrazem na bezpečnost dat, GDPR compliance a auditovatelnost přístupů.",
-    tags: ["On-premise", "GDPR", "Audit log"],
-  },
-  {
-    icon: Gauge,
-    title: "Monitoring a kvalita",
-    description: "Nastavení systémů pro průběžné sledování kvality odpovědí, detekci halucinací a automatické upozornění na degradaci.",
-    tags: ["MLflow", "Evaluation", "Monitoring"],
-  },
-  {
-    icon: LifeBuoy,
-    title: "Konzultace a strategie",
-    description: "Pomůžeme vám definovat vhodný use-case, vybrat správnou architekturu a naplánovat implementaci od A do Z.",
-    tags: ["Roadmap", "Use-case analýza", "ROI"],
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const ServicesSection = () => {
+  const { t } = useLanguage();
+
+  const services = [
+    { icon: Database, titleKey: "svc.s1.title", descKey: "svc.s1.desc", tagKeys: ["svc.s1.t1", "svc.s1.t2", "svc.s1.t3"] },
+    { icon: Cpu, titleKey: "svc.s2.title", descKey: "svc.s2.desc", tagKeys: ["svc.s2.t1", "svc.s2.t2", "svc.s2.t3"] },
+    { icon: Layers, titleKey: "svc.s3.title", descKey: "svc.s3.desc", tagKeys: ["svc.s3.t1", "svc.s3.t2", "svc.s3.t3"] },
+    { icon: ShieldCheck, titleKey: "svc.s4.title", descKey: "svc.s4.desc", tagKeys: ["svc.s4.t1", "svc.s4.t2", "svc.s4.t3"] },
+    { icon: Gauge, titleKey: "svc.s5.title", descKey: "svc.s5.desc", tagKeys: ["svc.s5.t1", "svc.s5.t2", "svc.s5.t3"] },
+    { icon: LifeBuoy, titleKey: "svc.s6.title", descKey: "svc.s6.desc", tagKeys: ["svc.s6.t1", "svc.s6.t2", "svc.s6.t3"] },
+  ];
+
   return (
     <section id="services" className="py-24 relative">
       <div className="absolute inset-0 opacity-5">
@@ -57,13 +30,11 @@ const ServicesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-sm font-mono text-primary mb-4 block">// SLUŽBY</span>
+          <span className="text-sm font-mono text-primary mb-4 block">{t("svc.tag")}</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Komplexní <span className="gradient-text">AI řešení</span>
+            {t("svc.title1")} <span className="gradient-text">{t("svc.title2")}</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Od analýzy use-case po produkční nasazení — pokryjeme celý životní cyklus vašeho AI projektu.
-          </p>
+          <p className="text-lg text-muted-foreground">{t("svc.desc")}</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -80,12 +51,12 @@ const ServicesSection = () => {
                 style={{ background: 'hsl(220 75% 55% / 0.06)' }} />
 
               <service.icon className="w-7 h-7 text-primary mb-5" />
-              <h3 className="text-lg font-semibold mb-3">{service.title}</h3>
-              <p className="text-muted-foreground leading-relaxed mb-5 text-sm">{service.description}</p>
+              <h3 className="text-lg font-semibold mb-3">{t(service.titleKey)}</h3>
+              <p className="text-muted-foreground leading-relaxed mb-5 text-sm">{t(service.descKey)}</p>
               <div className="flex flex-wrap gap-2">
-                {service.tags.map((tag) => (
-                  <span key={tag} className="px-3 py-1 rounded-full text-xs font-mono bg-secondary text-muted-foreground">
-                    {tag}
+                {service.tagKeys.map((key) => (
+                  <span key={key} className="px-3 py-1 rounded-full text-xs font-mono bg-secondary text-muted-foreground">
+                    {t(key)}
                   </span>
                 ))}
               </div>

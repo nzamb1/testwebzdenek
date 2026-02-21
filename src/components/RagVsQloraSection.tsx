@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const RagVsQloraSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="technology" className="py-24 relative">
       <div className="container mx-auto px-6">
@@ -11,13 +14,11 @@ const RagVsQloraSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-sm font-mono text-primary mb-4 block">// TECHNOLOGIE</span>
+          <span className="text-sm font-mono text-primary mb-4 block">{t("rag.tag")}</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            RAG a <span className="gradient-text">QLoRA</span> — jednoduše vysvětleno
+            {t("rag.title1")} <span className="gradient-text">{t("rag.title2")}</span> {t("rag.title3")}
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Žádné buzzwords bez kontextu. Zde je přesné vysvětlení, co která technologie dělá a proč ji používáme.
-          </p>
+          <p className="text-lg text-muted-foreground">{t("rag.desc")}</p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
@@ -32,32 +33,25 @@ const RagVsQloraSection = () => {
               <div className="px-3 py-1 rounded-md bg-primary/10 border border-primary/20">
                 <span className="text-primary font-mono text-sm font-semibold">RAG</span>
               </div>
-              <h3 className="text-xl font-bold">Retrieval-Augmented Generation</h3>
+              <h3 className="text-xl font-bold">{t("rag.ragTitle")}</h3>
             </div>
 
             <p className="text-muted-foreground leading-relaxed mb-6">
-              AI model se dokumenty <strong className="text-foreground">nenaučí nazpaměť</strong>. Místo toho v okamžiku dotazu
-              prohledá vektorovou databázi vašich dokumentů, vybere relevantní části a na jejich základě
-              vygeneruje odpověď. Data zůstávají aktuální a pod vaší kontrolou.
+              {t("rag.ragP")}
             </p>
 
             <div className="space-y-3 mb-6">
-              {[
-                "Data se nikdy nestávají součástí modelu",
-                "Obsah lze kdykoli aktualizovat nebo odebrat",
-                "Odpovědi jsou podloženy konkrétními zdroji",
-                "Nízké náklady na provoz",
-              ].map((point, i) => (
+              {["rag.ragPt1", "rag.ragPt2", "rag.ragPt3", "rag.ragPt4"].map((key, i) => (
                 <div key={i} className="flex items-start gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-muted-foreground">{point}</span>
+                  <span className="text-sm text-muted-foreground">{t(key)}</span>
                 </div>
               ))}
             </div>
 
             <div className="rounded-xl bg-secondary/50 border border-border/50 p-4">
               <p className="text-xs font-mono text-muted-foreground">
-                <span className="text-primary">Ideální pro:</span> interní dokumentaci, FAQ, onboarding, policy, technické specifikace
+                <span className="text-primary">{t("rag.ragIdeal")}</span> {t("rag.ragIdealDesc")}
               </p>
             </div>
           </motion.div>
@@ -74,21 +68,19 @@ const RagVsQloraSection = () => {
               <div className="px-3 py-1 rounded-md bg-accent/10 border border-accent/20">
                 <span className="text-accent font-mono text-sm font-semibold">QLoRA</span>
               </div>
-              <h3 className="text-xl font-bold">Fine-tuning modelu</h3>
+              <h3 className="text-xl font-bold">{t("rag.qloraTitle")}</h3>
             </div>
 
             <p className="text-muted-foreground leading-relaxed mb-6">
-              QLoRA je efektivní metoda <strong className="text-foreground">doučení modelu</strong> na vašich datech.
-              Model se naučí váš firemní styl, terminologii a kontext. Nenahrazuje RAG —
-              ale výrazně zlepšuje kvalitu odpovědí tam, kde záleží na preciznosti.
+              {t("rag.qloraP")}
             </p>
 
             <div className="space-y-3 mb-6">
               {[
-                { text: "Sjednocení stylu a tónu odpovědí", ok: true },
-                { text: "Porozumění doménově specifické terminologii", ok: true },
-                { text: "Snížení halucinací v odborném kontextu", ok: true },
-                { text: "Náhrada za RAG", ok: false },
+                { key: "rag.qloraPt1", ok: true },
+                { key: "rag.qloraPt2", ok: true },
+                { key: "rag.qloraPt3", ok: true },
+                { key: "rag.qloraPt4", ok: false },
               ].map((point, i) => (
                 <div key={i} className="flex items-start gap-2">
                   {point.ok
@@ -96,7 +88,7 @@ const RagVsQloraSection = () => {
                     : <X className="w-4 h-4 text-muted-foreground/50 flex-shrink-0 mt-0.5" />
                   }
                   <span className={`text-sm ${point.ok ? "text-muted-foreground" : "text-muted-foreground/50 line-through"}`}>
-                    {point.text}
+                    {t(point.key)}
                   </span>
                 </div>
               ))}
@@ -104,7 +96,7 @@ const RagVsQloraSection = () => {
 
             <div className="rounded-xl bg-secondary/50 border border-border/50 p-4">
               <p className="text-xs font-mono text-muted-foreground">
-                <span className="text-accent">Prémiová volba pro:</span> firmy s vysokými nároky na přesnost a specifický firemní jazyk
+                <span className="text-accent">{t("rag.qloraIdeal")}</span> {t("rag.qloraIdealDesc")}
               </p>
             </div>
           </motion.div>
@@ -125,9 +117,7 @@ const RagVsQloraSection = () => {
               <span className="text-muted-foreground font-mono text-sm">=</span>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              <strong className="text-foreground">Nejlepší z obou světů.</strong> RAG zajišťuje aktuálnost a bezpečnost dat,
-              QLoRA přidává doménové porozumění a konzistentní styl. Kombinace je vhodná pro firmy s komplexními
-              znalostními požadavky.
+              <strong className="text-foreground">{t("rag.combo")}</strong> {t("rag.comboDesc")}
             </p>
           </div>
         </motion.div>

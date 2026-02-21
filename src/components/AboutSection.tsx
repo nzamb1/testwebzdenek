@@ -1,25 +1,16 @@
 import { motion } from "framer-motion";
 import { FileText, Search, MessageSquare } from "lucide-react";
-
-const useCases = [
-  {
-    icon: FileText,
-    title: "Interní dokumentace",
-    description: "Zaměstnanci se ptají přirozeným jazykem — AI odpovídá výhradně z vašich interních manuálů, směrnic a procesů.",
-  },
-  {
-    icon: Search,
-    title: "Technické specifikace",
-    description: "Vývojáři a produktoví manažeři okamžitě dohledají relevantní části dokumentace, API specifikací nebo architektury.",
-  },
-  {
-    icon: MessageSquare,
-    title: "Onboarding & FAQ",
-    description: "Noví zaměstnanci nebo klienti dostanou přesné odpovědi z firemní knowledge base — bez zatěžování týmu.",
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const AboutSection = () => {
+  const { t } = useLanguage();
+
+  const useCases = [
+    { icon: FileText, titleKey: "about.uc1.title", descKey: "about.uc1.desc" },
+    { icon: Search, titleKey: "about.uc2.title", descKey: "about.uc2.desc" },
+    { icon: MessageSquare, titleKey: "about.uc3.title", descKey: "about.uc3.desc" },
+  ];
+
   return (
     <section id="about" className="py-24 relative">
       <div className="container mx-auto px-6">
@@ -30,37 +21,38 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-sm font-mono text-primary mb-4 block">// CO DĚLÁME</span>
+            <span className="text-sm font-mono text-primary mb-4 block">{t("about.tag")}</span>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              AI, která rozumí{" "}
-              <span className="gradient-text">vašemu byznysu</span>
+              {t("about.title1")}{" "}
+              <span className="gradient-text">{t("about.title2")}</span>
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Implementujeme AI asistenty, kteří odpovídají výhradně na základě vašich firemních dat —
-              dokumentace, specifikací, politik a znalostní báze.
+              {t("about.p1")}
             </p>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Nepotřebujete trénovat nový model od nuly, kupovat drahé licence ani sdílet data s externími
-              poskytovateli. Náš přístup využívá <span className="text-foreground font-medium">RAG (Retrieval-Augmented Generation)</span> —
-              ověřenou architekturu, která kombinuje přesnost vyhledávání s přirozeností jazykového modelu.
+              {t("about.p2prefix")}
+              <span className="text-foreground font-medium">{t("about.rag")}</span>
+              {t("about.p2suffix")}
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Pro firmy, které vyžadují sjednocený styl odpovědí nebo práci s doménově specifickou
-              terminologií, nabízíme volitelně prémiové{" "}
-              <span className="text-foreground font-medium">QLoRA fine-tuning</span>, které RAG doplňuje
-              a snižuje halucinace v konkrétním kontextu.
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              {t("about.p3prefix")}
+              <span className="text-foreground font-medium">{t("about.qlora")}</span>
+              {t("about.p3suffix")}
+            </p>
+            <p className="text-sm text-muted-foreground/70 font-mono mb-6">
+              {t("about.p4")}
             </p>
 
             <div className="mt-8 p-5 rounded-xl bg-secondary/50 border border-border/50">
-              <p className="text-sm font-mono text-primary mb-2">Co znamená Tekinfra?</p>
+              <p className="text-sm font-mono text-primary mb-2">{t("about.tekinfra.title")}</p>
               <div className="flex flex-col gap-2">
                 <div>
-                  <span className="font-semibold text-foreground">Tek / Tech</span>{" "}
-                  <span className="text-muted-foreground">— fonetický přepis slova „tech" (technology)</span>
+                  <span className="font-semibold text-foreground">{t("about.tekinfra.tek")}</span>{" "}
+                  <span className="text-muted-foreground">{t("about.tekinfra.tekDesc")}</span>
                 </div>
                 <div>
-                  <span className="font-semibold text-foreground">Infra</span>{" "}
-                  <span className="text-muted-foreground">— zkrácenina pro „infrastructure" (infrastruktura)</span>
+                  <span className="font-semibold text-foreground">{t("about.tekinfra.infra")}</span>{" "}
+                  <span className="text-muted-foreground">{t("about.tekinfra.infraDesc")}</span>
                 </div>
               </div>
             </div>
@@ -73,7 +65,7 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <p className="text-sm font-mono text-muted-foreground mb-2">Typické use-cases:</p>
+            <p className="text-sm font-mono text-muted-foreground mb-2">{t("about.usecases")}</p>
             {useCases.map((item, i) => (
               <motion.div
                 key={i}
@@ -87,8 +79,8 @@ const AboutSection = () => {
                   <item.icon className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                  <h3 className="font-semibold mb-1">{t(item.titleKey)}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{t(item.descKey)}</p>
                 </div>
               </motion.div>
             ))}
