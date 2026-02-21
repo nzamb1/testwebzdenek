@@ -3,18 +3,22 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import tekinfraLogo from "@/assets/tekinfra-logo.png";
-
-const navLinks = [
-  { label: "Co děláme", href: "#about" },
-  { label: "Jak to funguje", href: "#how-it-works" },
-  { label: "Technologie", href: "#technology" },
-  { label: "Nasazení", href: "#deployment" },
-  { label: "Pro koho", href: "#for-whom" },
-  { label: "Kontakt", href: "#contact" },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { lang, setLang, t } = useLanguage();
+
+  const navLinks = [
+    { label: t("nav.about"), href: "#about" },
+    { label: t("nav.howItWorks"), href: "#how-it-works" },
+    { label: t("nav.technology"), href: "#technology" },
+    { label: t("nav.deployment"), href: "#deployment" },
+    { label: t("nav.forWhom"), href: "#for-whom" },
+    { label: t("nav.contact"), href: "#contact" },
+  ];
+
+  const toggleLang = () => setLang(lang === "cs" ? "en" : "cs");
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-border/30">
@@ -35,8 +39,14 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
+            <button
+              onClick={toggleLang}
+              className="px-3 py-1.5 rounded-md text-xs font-mono font-semibold border border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors"
+            >
+              {lang === "cs" ? "EN" : "CZ"}
+            </button>
             <Button size="sm" className="glow-primary" asChild>
-              <a href="#contact">Konzultace zdarma</a>
+              <a href="#contact">{t("nav.cta")}</a>
             </Button>
           </div>
 
@@ -67,8 +77,14 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
+              <button
+                onClick={toggleLang}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 text-left font-mono"
+              >
+                {lang === "cs" ? "🇬🇧 English" : "🇨🇿 Čeština"}
+              </button>
               <Button size="sm" className="glow-primary w-full" asChild>
-                <a href="#contact">Konzultace zdarma</a>
+                <a href="#contact">{t("nav.cta")}</a>
               </Button>
             </div>
           </motion.div>

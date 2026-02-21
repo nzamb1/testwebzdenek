@@ -3,8 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const ContactSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className="py-24 relative">
       <div className="container mx-auto px-6">
@@ -14,13 +17,11 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-sm font-mono text-primary mb-4 block">// KONTAKT</span>
+          <span className="text-sm font-mono text-primary mb-4 block">{t("ct.tag")}</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Pojďme to <span className="gradient-text">rozjet</span>
+            {t("ct.title1")} <span className="gradient-text">{t("ct.title2")}</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Máte projekt na mysli? Ozvěte se nám a probereme, jak vám můžeme pomoci.
-          </p>
+          <p className="text-lg text-muted-foreground">{t("ct.desc")}</p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
@@ -31,13 +32,13 @@ const ContactSection = () => {
           >
             <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
               <div className="grid sm:grid-cols-2 gap-4">
-                <Input placeholder="Jméno" className="bg-secondary/50 border-border/50 h-12" />
-                <Input placeholder="E-mail" type="email" className="bg-secondary/50 border-border/50 h-12" />
+                <Input placeholder={t("ct.name")} className="bg-secondary/50 border-border/50 h-12" />
+                <Input placeholder={t("ct.email")} type="email" className="bg-secondary/50 border-border/50 h-12" />
               </div>
-              <Input placeholder="Firma" className="bg-secondary/50 border-border/50 h-12" />
-              <Textarea placeholder="Popište váš projekt nebo dotaz..." className="bg-secondary/50 border-border/50 min-h-[140px]" />
+              <Input placeholder={t("ct.company")} className="bg-secondary/50 border-border/50 h-12" />
+              <Textarea placeholder={t("ct.message")} className="bg-secondary/50 border-border/50 min-h-[140px]" />
               <Button size="lg" className="w-full py-6 glow-primary">
-                Odeslat zprávu
+                {t("ct.submit")}
               </Button>
             </form>
           </motion.div>
@@ -49,17 +50,19 @@ const ContactSection = () => {
             viewport={{ once: true }}
           >
             {[
-              { icon: Mail, label: "E-mail", value: "info@tekinfra.eu" },
-              { icon: Phone, label: "Telefon", value: "+420 608 557 960" },
-              { icon: MapPin, label: "Adresa", value: "TEKINFRA, s.r.o. | IČ: 04356187\nZakšínská 611/3, Praha 9\nČeská republika" },
+              { icon: Mail, labelKey: "ct.emailLabel", value: "info@tekinfra.eu" },
+              { icon: Phone, labelKey: "ct.phoneLabel", value: "+420 608 557 960" },
+              { icon: MapPin, labelKey: "ct.addressLabel", valueKey: "ct.address" },
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <item.icon className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm text-muted-foreground mb-1">{item.label}</div>
-                  <div className="font-medium whitespace-pre-line">{item.value}</div>
+                  <div className="text-sm text-muted-foreground mb-1">{t(item.labelKey)}</div>
+                  <div className="font-medium whitespace-pre-line">
+                    {item.valueKey ? t(item.valueKey) : item.value}
+                  </div>
                 </div>
               </div>
             ))}
