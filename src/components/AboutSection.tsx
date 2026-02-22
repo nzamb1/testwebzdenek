@@ -29,12 +29,17 @@ const AboutSection = () => {
             <p className="text-muted-foreground leading-relaxed mb-6">
               {t("about.p2")}
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-8">
+            <p className="text-muted-foreground leading-relaxed mb-6">
               {t("about.p3prefix1")}
               <span className="text-foreground font-semibold">{t("about.p3bold1")}</span>
               {t("about.p3mid")}
               <span className="text-foreground font-semibold">{t("about.p3bold2")}</span>
               {t("about.p3suffix")}
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              {t("about.p4prefix")}
+              <span className="text-foreground font-semibold">{t("about.p4paren")}</span>
+              {t("about.p4suffix")}
             </p>
 
             {/* TekInfra + Deployment box */}
