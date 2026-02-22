@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <img src={tekinfraLogo} alt="TEKINFRA" className="h-[60px]" />
+            <img src={tekinfraLogo} alt="TEKINFRA" className="h-8" />
           </div>
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} TEKINFRA, s.r.o. {t("footer.rights")}
