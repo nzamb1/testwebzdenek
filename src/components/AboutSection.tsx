@@ -27,29 +27,26 @@ const AboutSection = () => {
               {t("about.p1")}
             </p>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              {t("about.p2")}
+              {t("about.p2prefix")}
+              {t("about.p2bold")}
+              {t("about.p2suffix")}
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-6">
+            <p className="text-muted-foreground leading-relaxed mb-8">
               {t("about.p3prefix1")}
               <span className="text-foreground font-semibold">{t("about.p3bold1")}</span>
               {t("about.p3mid")}
               <span className="text-foreground font-semibold">{t("about.p3bold2")}</span>
               {t("about.p3suffix")}
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              {t("about.p4prefix")}
-              <span className="text-foreground font-semibold">{t("about.p4paren")}</span>
-              {t("about.p4suffix")}
-            </p>
 
             {/* TekInfra + Deployment box */}
             <div className="p-5 rounded-xl bg-secondary/50 border border-border/50">
               <p className="text-sm font-mono text-primary mb-3">{t("about.tekinfra.title")}</p>
               <div className="flex flex-col gap-2">
-                <div className="flex items-center gap-2">
-                  <span className="px-2.5 py-1 rounded-md bg-primary/15 text-primary text-sm font-semibold">{t("about.tekinfra.tek")}</span>
-                  <span className="text-sm text-muted-foreground">{t("about.tekinfra.tekDesc")}</span>
-                </div>
+                
+
+
+
                 <div className="flex items-center gap-2">
                   <span className="px-2.5 py-1 rounded-md bg-primary/15 text-primary text-sm font-semibold">{t("about.tekinfra.infra")}</span>
                   <span className="text-sm text-muted-foreground">{t("about.tekinfra.infraDesc")}</span>
@@ -59,8 +56,8 @@ const AboutSection = () => {
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default AboutSection;
