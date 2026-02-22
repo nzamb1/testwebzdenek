@@ -75,23 +75,23 @@ const AboutSection = () => {
             viewport={{ once: true }}>
 
             
-            {useCases.map((item, i) =>
-            <motion.div
-              key={i}
-              className="glass-card rounded-2xl p-6 flex gap-4 hover:border-primary/30 transition-colors"
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.12 }}>
+            {useCases.map((item, i) => {}
 
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <item.icon className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">{t(item.titleKey)}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{t(item.descKey)}</p>
-                </div>
-              </motion.div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             )}
           </motion.div>
         </div>
