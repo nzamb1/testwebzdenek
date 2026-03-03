@@ -12,63 +12,59 @@ const HeroSection = () => {
     { a: "hero.benefit3a", b: "hero.benefit3b" },
   ];
 
-  // Split desc around the bold part
   const desc = t("hero.desc");
   const boldPart = t("hero.descBold");
   const descParts = desc.split(boldPart);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated background grid */}
-      <div className="absolute inset-0 opacity-10">
+      {/* Subtle dot pattern like other sections */}
+      <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(hsl(var(--primary) / 0.2) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary) / 0.2) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
+          backgroundImage: `radial-gradient(hsl(var(--primary) / 0.3) 1px, transparent 1px)`,
+          backgroundSize: '30px 30px'
         }} />
       </div>
 
       {/* Floating orbs */}
       <motion.div
         className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-[120px]"
-        style={{ background: 'hsl(165 82% 51% / 0.07)' }}
+        style={{ background: 'hsl(165 82% 51% / 0.05)' }}
         animate={{ scale: [1, 1.2, 1], x: [0, 30, 0], y: [0, -20, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-[100px]"
-        style={{ background: 'hsl(270 60% 60% / 0.07)' }}
+        style={{ background: 'hsl(270 60% 60% / 0.05)' }}
         animate={{ scale: [1.2, 1, 1.2], x: [0, -20, 0], y: [0, 30, 0] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="container relative z-10 px-6 py-20">
+      <div className="container mx-auto relative z-10 px-6 py-20">
         <motion.div
-          className="max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 40 }}
+          className="max-w-3xl mx-auto text-center"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
-          {/* Badge */}
-          <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+          {/* Tag – same style as other sections */}
+          <motion.span
+            className="text-sm font-mono text-primary mb-6 block"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <span className="text-sm font-medium text-muted-foreground font-mono">
-              {t("hero.badge")}
-            </span>
-          </motion.div>
+            {t("hero.badge")}
+          </motion.span>
 
-          {/* Title */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.08] italic">
-            {t("hero.title1")}
-            <br />
-            <span className="not-italic font-extrabold">{t("hero.title2")}</span>
+          {/* Title – consistent with other section headings */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            {t("hero.title1")}{" "}
+            <span className="gradient-text">{t("hero.title2")}</span>
           </h1>
 
-          {/* Description with bold part */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
+          {/* Description */}
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
             {descParts[0]}
             <span className="text-foreground font-semibold">{boldPart}</span>
             {descParts[1]}
@@ -76,21 +72,21 @@ const HeroSection = () => {
 
           {/* Benefits row */}
           <motion.div
-            className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-12 text-base md:text-lg italic"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            className="flex flex-wrap justify-center items-center gap-x-2 gap-y-3 mb-12"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
             {benefits.map((b, i) => (
-              <span key={i} className="flex items-center gap-1">
-                {i > 0 && <span className="text-muted-foreground mr-4">•</span>}
-                <span className="font-bold text-foreground">{t(b.a)}</span>
+              <span key={i} className="flex items-center gap-1 text-sm md:text-base">
+                {i > 0 && <span className="text-muted-foreground mx-3">•</span>}
+                <span className="font-semibold text-foreground">{t(b.a)}</span>
                 <span className="text-muted-foreground">{t(b.b)}</span>
               </span>
             ))}
           </motion.div>
 
-          {/* Glowing horizontal line */}
+          {/* Glowing gradient line */}
           <motion.div
             className="relative w-full max-w-2xl mx-auto h-[2px] mb-12"
             initial={{ scaleX: 0 }}
@@ -106,11 +102,14 @@ const HeroSection = () => {
           </motion.div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="text-base px-8 py-6 glow-primary group" asChild>
-              <a href="#contact">
-                {t("hero.cta1")}
-              </a>
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+          >
+            <Button size="lg" className="text-base px-8 py-6 glow-primary" asChild>
+              <a href="#contact">{t("hero.cta1")}</a>
             </Button>
             <Button size="lg" variant="outline" className="text-base px-8 py-6 group" asChild>
               <a href="#how-it-works">
@@ -118,7 +117,7 @@ const HeroSection = () => {
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
