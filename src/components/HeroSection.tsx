@@ -1,16 +1,21 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Layers, ShieldCheck, Gauge } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const HeroSection = () => {
   const { t } = useLanguage();
 
-  const cards = [
-    { icon: Layers, labelKey: "hero.card1.label", descKey: "hero.card1.desc" },
-    { icon: ShieldCheck, labelKey: "hero.card2.label", descKey: "hero.card2.desc" },
-    { icon: Gauge, labelKey: "hero.card3.label", descKey: "hero.card3.desc" },
+  const benefits = [
+    { a: "hero.benefit1a", b: "hero.benefit1b" },
+    { a: "hero.benefit2a", b: "hero.benefit2b" },
+    { a: "hero.benefit3a", b: "hero.benefit3b" },
   ];
+
+  // Split desc around the bold part
+  const desc = t("hero.desc");
+  const boldPart = t("hero.descBold");
+  const descParts = desc.split(boldPart);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -43,55 +48,77 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
+          {/* Badge */}
           <motion.div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span className="text-sm font-medium text-muted-foreground font-mono">
               {t("hero.badge")}
             </span>
           </motion.div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.08]">
+          {/* Title */}
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.08] italic">
             {t("hero.title1")}
             <br />
-            <span className="gradient-text">{t("hero.title2")}</span>
+            <span className="not-italic font-extrabold">{t("hero.title2")}</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-            {t("hero.desc")}
+          {/* Description with bold part */}
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
+            {descParts[0]}
+            <span className="text-foreground font-semibold">{boldPart}</span>
+            {descParts[1]}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
+          {/* Benefits row */}
+          <motion.div
+            className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-12 text-base md:text-lg italic"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            {benefits.map((b, i) => (
+              <span key={i} className="flex items-center gap-1">
+                {i > 0 && <span className="text-muted-foreground mr-4">•</span>}
+                <span className="font-bold text-foreground">{t(b.a)}</span>
+                <span className="text-muted-foreground">{t(b.b)}</span>
+              </span>
+            ))}
+          </motion.div>
+
+          {/* Glowing horizontal line */}
+          <motion.div
+            className="relative w-full max-w-2xl mx-auto h-[2px] mb-12"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
+            <div className="absolute inset-0 rounded-full" style={{
+              background: 'linear-gradient(90deg, transparent, hsl(165 82% 51%), hsl(270 60% 60%), transparent)'
+            }} />
+            <div className="absolute inset-0 rounded-full blur-md" style={{
+              background: 'linear-gradient(90deg, transparent, hsl(165 82% 51% / 0.6), hsl(270 60% 60% / 0.6), transparent)'
+            }} />
+          </motion.div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="text-base px-8 py-6 glow-primary group" asChild>
               <a href="#contact">
                 {t("hero.cta1")}
+              </a>
+            </Button>
+            <Button size="lg" variant="outline" className="text-base px-8 py-6 group" asChild>
+              <a href="#how-it-works">
+                {t("hero.cta2")}
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="text-base px-8 py-6" asChild>
-              <a href="#services">{t("hero.cta2")}</a>
-            </Button>
           </div>
-
-          {/* Key benefits */}
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-          >
-            {cards.map((item, i) => (
-              <div key={i} className="glass-card rounded-xl p-5 text-left">
-                <item.icon className="w-5 h-5 text-primary mb-3" />
-                <div className="font-semibold text-sm mb-1">{t(item.labelKey)}</div>
-                <div className="text-xs text-muted-foreground leading-relaxed">{t(item.descKey)}</div>
-              </div>
-            ))}
-          </motion.div>
         </motion.div>
       </div>
     </section>
