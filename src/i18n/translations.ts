@@ -147,6 +147,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     "fw.s4.title": "Firmy bez technického zázemí",
     "fw.s4.desc": "Nemusíte rozumět AI. My řešíme technickou implementaci od začátku do konce. Vy dostanete fungující AI asistenta přizpůsobeného vašemu obsahu a potřebám.",
     "fw.s4.t1": "Turnkey řešení", "fw.s4.t2": "Žádný interní AI tým", "fw.s4.t3": "Plná podpora",
+    "fw.slides.title": "Praktické use-casy a příklady úspor",
 
     // Team
     "team.tag": "// TÝM",
@@ -379,6 +380,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     "fw.s4.title": "Companies without technical background",
     "fw.s4.desc": "You don't need to understand AI. We handle the technical implementation from start to finish. You get a working AI assistant tailored to your content and needs.",
     "fw.s4.t1": "Turnkey solution", "fw.s4.t2": "No internal AI team", "fw.s4.t3": "Full support",
+    "fw.slides.title": "Practical use cases & savings examples",
 
     // Team
     "team.tag": "// TEAM",
