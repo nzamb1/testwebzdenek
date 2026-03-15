@@ -201,7 +201,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     "ct.tag": "// KONTAKT",
     "ct.title1": "Pojďme to",
     "ct.title2": "rozjet",
-    "ct.desc": "Máte projekt na mysli? Ozvěte se nám a probereme, jak vám můžeme pomoci.",
+    "ct.desc": "Ozvěte se nám a probereme, jak vám můžeme pomoci.",
     "ct.name": "Jméno",
     "ct.email": "E-mail",
     "ct.company": "Firma",
