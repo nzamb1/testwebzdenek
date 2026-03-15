@@ -54,7 +54,7 @@ const UseCasesSlideshow = () => {
   const prev = () => setCurrent((c) => (c === 0 ? slides.length - 1 : c - 1));
   const next = () => setCurrent((c) => (c === slides.length - 1 ? 0 : c + 1));
 
-  const titles = slideTitles[language] || slideTitles.en;
+  const titles = slideTitles[lang] || slideTitles.en;
 
   const SlideViewer = ({ isFullscreen = false }: { isFullscreen?: boolean }) => (
     <div className={`relative ${isFullscreen ? "w-full h-full flex flex-col" : ""}`}>
