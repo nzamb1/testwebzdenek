@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Monitor, MessageCircle } from "lucide-react";
@@ -10,6 +11,15 @@ import flagGb from "@/assets/flag-gb.png";
 const Landing = () => {
   const { lang, setLang, t } = useLanguage();
   const toggleLang = () => setLang(lang === "cs" ? "en" : "cs");
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlay = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background relative">
@@ -83,16 +93,26 @@ const Landing = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            <div className="glass-card rounded-2xl overflow-hidden glow-primary">
+            <div className="glass-card rounded-2xl overflow-hidden glow-primary relative group cursor-pointer" onClick={!isPlaying ? handlePlay : undefined}>
               <video
+                ref={videoRef}
                 className="w-full aspect-video"
-                controls
-                poster=""
+                controls={isPlaying}
                 preload="metadata"
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+                onEnded={() => setIsPlaying(false)}
               >
                 <source src="/videos/tekinfra_landing_v1.mp4" type="video/mp4" />
                 {t("landing.videoFallback")}
               </video>
+              {!isPlaying && (
+                <div className="absolute inset-0 flex items-center justify-center bg-background/30 transition-opacity group-hover:bg-background/10">
+                  <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/40 group-hover:scale-110 transition-transform">
+                    <Play className="w-9 h-9 text-primary-foreground ml-1" fill="currentColor" />
+                  </div>
+                </div>
+              )}
             </div>
           </motion.div>
 
