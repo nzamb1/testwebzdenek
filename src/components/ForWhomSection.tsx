@@ -54,6 +54,8 @@ const ForWhomSection = () => {
             </motion.div>
           ))}
         </div>
+
+        <UseCasesSlideshow />
       </div>
     </section>
   );
