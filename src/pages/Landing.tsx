@@ -45,7 +45,7 @@ const Landing = () => {
               <img src={lang === "cs" ? flagGb : flagCz} alt="" className="w-5 h-5 rounded-full object-cover" />
               {lang === "cs" ? "EN" : "CZ"}
             </button>
-            <Button size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground" asChild>
+            <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
               <Link to="/site#contact">
                 <MessageCircle className="mr-1 w-4 h-4" />
                 {t("landing.ctaContact")}
