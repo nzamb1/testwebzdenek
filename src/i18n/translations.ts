@@ -209,6 +209,22 @@ export const translations: Record<Lang, Record<string, string>> = {
     "ct.addressLabel": "Adresa",
     "ct.address": "TEKINFRA, s.r.o. | IČ: 04356187\nZakšínská 611/3, Praha 9\nČeská republika",
 
+    // Landing
+    "landing.tag": "// PODÍVEJTE SE, JAK TO FUNGUJE",
+    "landing.title1": "AI nad firemními daty",
+    "landing.title2": "v akci",
+    "landing.desc": "Podívejte se, jak AI asistent pracuje s interní dokumentací — v reálném čase, bezpečně a přesně.",
+    "landing.goToSite": "Hlavní web",
+    "landing.ctaDemo": "Vyzkoušet demo",
+    "landing.ctaSite": "Více o TEKINFRA",
+    "landing.videoFallback": "Váš prohlížeč nepodporuje přehrávání videa.",
+
+    // Demo
+    "demo.title": "Demo AI asistenta",
+    "demo.desc": "Interaktivní ukázka AI asistenta pracujícího nad firemní dokumentací.",
+    "demo.back": "Zpět",
+    "demo.placeholder": "// Demo bude brzy k dispozici",
+
     // Footer
     "footer.rights": "Všechna práva vyhrazena.",
   },
