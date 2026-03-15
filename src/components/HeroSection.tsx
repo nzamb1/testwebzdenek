@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, MessageCircle, Monitor } from "lucide-react";
+import { ArrowRight, MessageCircle, Monitor, Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 
