@@ -3,19 +3,34 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-import slide1 from "@/assets/slides/page_1.jpg";
-import slide2 from "@/assets/slides/page_2.jpg";
-import slide3 from "@/assets/slides/page_3.jpg";
-import slide4 from "@/assets/slides/page_4.jpg";
-import slide5 from "@/assets/slides/page_5.jpg";
-import slide6 from "@/assets/slides/page_6.jpg";
-import slide7 from "@/assets/slides/page_7.jpg";
-import slide8 from "@/assets/slides/page_8.jpg";
-import slide9 from "@/assets/slides/page_9.jpg";
-import slide10 from "@/assets/slides/page_10.jpg";
-import slide11 from "@/assets/slides/page_11.jpg";
+// Czech slides
+import slideCs1 from "@/assets/slides/page_1.jpg";
+import slideCs2 from "@/assets/slides/page_2.jpg";
+import slideCs3 from "@/assets/slides/page_3.jpg";
+import slideCs4 from "@/assets/slides/page_4.jpg";
+import slideCs5 from "@/assets/slides/page_5.jpg";
+import slideCs6 from "@/assets/slides/page_6.jpg";
+import slideCs7 from "@/assets/slides/page_7.jpg";
+import slideCs8 from "@/assets/slides/page_8.jpg";
+import slideCs9 from "@/assets/slides/page_9.jpg";
+import slideCs10 from "@/assets/slides/page_10.jpg";
+import slideCs11 from "@/assets/slides/page_11.jpg";
 
-const slides = [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11];
+// English slides
+import slideEn1 from "@/assets/slides_en/page_1.jpg";
+import slideEn2 from "@/assets/slides_en/page_2.jpg";
+import slideEn3 from "@/assets/slides_en/page_3.jpg";
+import slideEn4 from "@/assets/slides_en/page_4.jpg";
+import slideEn5 from "@/assets/slides_en/page_5.jpg";
+import slideEn6 from "@/assets/slides_en/page_6.jpg";
+import slideEn7 from "@/assets/slides_en/page_7.jpg";
+import slideEn8 from "@/assets/slides_en/page_8.jpg";
+import slideEn9 from "@/assets/slides_en/page_9.jpg";
+import slideEn10 from "@/assets/slides_en/page_10.jpg";
+import slideEn11 from "@/assets/slides_en/page_11.jpg";
+
+const slidesCs = [slideCs1, slideCs2, slideCs3, slideCs4, slideCs5, slideCs6, slideCs7, slideCs8, slideCs9, slideCs10, slideCs11];
+const slidesEn = [slideEn1, slideEn2, slideEn3, slideEn4, slideEn5, slideEn6, slideEn7, slideEn8, slideEn9, slideEn10, slideEn11];
 
 const slideTitles: Record<string, string[]> = {
   cs: [
@@ -32,16 +47,16 @@ const slideTitles: Record<string, string[]> = {
     "Pilot — rychle ověřitelný",
   ],
   en: [
-    "Practical AI use cases",
+    "Practical use cases for internal AI",
     "What AI does in practice",
     "Where unnecessary work arises",
-    "Lawyer / law firm",
-    "Project / claim management",
+    "Lawyer / smaller law firm",
+    "Projects / claim management",
     "Finance / accounting",
     "HR / onboarding",
     "Sales / presales",
     "Technical support / service",
-    "How to calculate business case",
+    "How to quantify the business case",
     "Pilot — quickly verifiable",
   ],
 };
@@ -51,10 +66,11 @@ const UseCasesSlideshow = () => {
   const [current, setCurrent] = useState(0);
   const [fullscreen, setFullscreen] = useState(false);
 
+  const slides = lang === "cs" ? slidesCs : slidesEn;
+  const titles = slideTitles[lang] || slideTitles.en;
+
   const prev = () => setCurrent((c) => (c === 0 ? slides.length - 1 : c - 1));
   const next = () => setCurrent((c) => (c === slides.length - 1 ? 0 : c + 1));
-
-  const titles = slideTitles[lang] || slideTitles.en;
 
   const SlideViewer = ({ isFullscreen = false }: { isFullscreen?: boolean }) => (
     <div className={`relative ${isFullscreen ? "w-full h-full flex flex-col" : ""}`}>
@@ -90,7 +106,7 @@ const UseCasesSlideshow = () => {
       <div className={`relative overflow-hidden rounded-xl bg-black/20 ${isFullscreen ? "flex-1" : "aspect-[16/9]"}`}>
         <AnimatePresence mode="wait">
           <motion.img
-            key={current}
+            key={`${lang}-${current}`}
             src={slides[current]}
             alt={titles[current]}
             className="w-full h-full object-contain"
