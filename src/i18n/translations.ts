@@ -209,6 +209,22 @@ export const translations: Record<Lang, Record<string, string>> = {
     "ct.addressLabel": "Adresa",
     "ct.address": "TEKINFRA, s.r.o. | IČ: 04356187\nZakšínská 611/3, Praha 9\nČeská republika",
 
+    // Landing
+    "landing.tag": "// PODÍVEJTE SE, JAK TO FUNGUJE",
+    "landing.title1": "AI nad firemními daty",
+    "landing.title2": "v akci",
+    "landing.desc": "Podívejte se, jak AI asistent pracuje s interní dokumentací — v reálném čase, bezpečně a přesně.",
+    "landing.goToSite": "Hlavní web",
+    "landing.ctaDemo": "Vyzkoušet demo",
+    "landing.ctaSite": "Více o TEKINFRA",
+    "landing.videoFallback": "Váš prohlížeč nepodporuje přehrávání videa.",
+
+    // Demo
+    "demo.title": "Demo AI asistenta",
+    "demo.desc": "Interaktivní ukázka AI asistenta pracujícího nad firemní dokumentací.",
+    "demo.back": "Zpět",
+    "demo.placeholder": "// Demo bude brzy k dispozici",
+
     // Footer
     "footer.rights": "Všechna práva vyhrazena.",
   },
@@ -419,6 +435,22 @@ export const translations: Record<Lang, Record<string, string>> = {
     "ct.phoneLabel": "Phone",
     "ct.addressLabel": "Address",
     "ct.address": "TEKINFRA, s.r.o. | IČ: 04356187\nZakšínská 611/3, Prague 9\nCzech Republic",
+
+    // Landing
+    "landing.tag": "// SEE HOW IT WORKS",
+    "landing.title1": "AI over company data",
+    "landing.title2": "in action",
+    "landing.desc": "See how an AI assistant works with internal documentation — in real time, securely and accurately.",
+    "landing.goToSite": "Main site",
+    "landing.ctaDemo": "Try the demo",
+    "landing.ctaSite": "More about TEKINFRA",
+    "landing.videoFallback": "Your browser does not support video playback.",
+
+    // Demo
+    "demo.title": "AI Assistant Demo",
+    "demo.desc": "Interactive demonstration of an AI assistant working over corporate documentation.",
+    "demo.back": "Back",
+    "demo.placeholder": "// Demo coming soon",
 
     // Footer
     "footer.rights": "All rights reserved.",
