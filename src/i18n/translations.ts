@@ -452,7 +452,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     "landing.desc": "See how an AI assistant works with internal documentation — in real time, securely and accurately.",
     "landing.goToSite": "How it works?",
     "landing.ctaDemo": "Try the demo",
-    "landing.ctaSite": "More about TEKINFRA",
+    "landing.ctaSite": "How it works?",
     "landing.ctaContact": "Free consultation",
     "landing.videoFallback": "Your browser does not support video playback.",
 
