@@ -237,7 +237,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     "nav.howItWorks": "How it works",
     "nav.technology": "Technology",
     "nav.deployment": "Deployment",
-    "nav.forWhom": "Examples",
+    "nav.forWhom": "Use-cases",
     "nav.contact": "Contact",
     "nav.cta": "Contact",
     "nav.video": "Video",
