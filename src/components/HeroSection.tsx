@@ -114,7 +114,7 @@ const HeroSection = () => {
             {t("about.p2")}
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            {t("about.p4")}
+            TekInfra = <span className="text-primary font-semibold">Technology</span> × <span className="text-accent font-semibold">Infrastructure</span>{t("about.p4.suffix")}
           </p>
         </motion.div>
 

@@ -273,7 +273,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     "about.p3mid": " and secure connection to your systems. Optionally we add ",
     "about.p3bold2": "QLoRA fine-tuning",
     "about.p3suffix": " for consistent response style and domain terminology.",
-    "about.p4": "TekInfra = Technology × Infrastructure. We build AI to work in production — securely, reliably and connected to your company data and processes.",
+    "about.p4.suffix": ". We build AI to work in production — securely, reliably and connected to your company data and processes.",
     "about.tekinfra.title": "Why TekInfra",
     "about.tekinfra.tek": "Tek",
     "about.tekinfra.tekDesc": "= technology (how to build AI the right way)",
