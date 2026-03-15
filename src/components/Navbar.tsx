@@ -42,9 +42,6 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              {t("nav.video")}
-            </Link>
             <Link to="/demo" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               {t("nav.demo")}
             </Link>
