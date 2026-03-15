@@ -131,7 +131,8 @@ export const translations: Record<Lang, Record<string, string>> = {
 
     // ForWhom
     "fw.tag": "// PŘÍKLADY",
-    "fw.title": "Konkrétní příklady aplikace",
+    "fw.title1": "Konkrétní ",
+    "fw.title2": "příklady aplikace",
     "fw.s1.title": "CTO a IT manažeři",
     "fw.s1.desc": "Hledáte způsob, jak zpřístupnit technickou dokumentaci a specifikace celému týmu bez zahlcení podpory. Chcete řešení, které je bezpečné, auditovatelné a integrovatelné do stávající infrastruktury.",
     "fw.s1.t1": "On-premise", "fw.s1.t2": "API integrace", "fw.s1.t3": "Security compliance",
