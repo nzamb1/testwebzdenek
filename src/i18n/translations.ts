@@ -450,7 +450,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     "landing.title1": "AI over company data",
     "landing.title2": "in action",
     "landing.desc": "See how an AI assistant works with internal documentation — in real time, securely and accurately.",
-    "landing.goToSite": "About TEKINFRA",
+    "landing.goToSite": "How it works?",
     "landing.ctaDemo": "Try the demo",
     "landing.ctaSite": "More about TEKINFRA",
     "landing.ctaContact": "Free consultation",
