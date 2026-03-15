@@ -131,7 +131,8 @@ export const translations: Record<Lang, Record<string, string>> = {
 
     // ForWhom
     "fw.tag": "// PŘÍKLADY",
-    "fw.title": "Konkrétní příklady aplikace",
+    "fw.title1": "Konkrétní ",
+    "fw.title2": "příklady aplikace",
     "fw.s1.title": "CTO a IT manažeři",
     "fw.s1.desc": "Hledáte způsob, jak zpřístupnit technickou dokumentaci a specifikace celému týmu bez zahlcení podpory. Chcete řešení, které je bezpečné, auditovatelné a integrovatelné do stávající infrastruktury.",
     "fw.s1.t1": "On-premise", "fw.s1.t2": "API integrace", "fw.s1.t3": "Security compliance",
@@ -361,7 +362,8 @@ export const translations: Record<Lang, Record<string, string>> = {
 
     // ForWhom
     "fw.tag": "// USE CASES",
-    "fw.title": "Concrete use cases",
+    "fw.title1": "Concrete ",
+    "fw.title2": "use cases",
     "fw.s1.title": "CTOs & IT managers",
     "fw.s1.desc": "Looking for a way to make technical documentation and specifications accessible to the entire team without overwhelming support. You want a solution that's secure, auditable and integrable into existing infrastructure.",
     "fw.s1.t1": "On-premise", "fw.s1.t2": "API integration", "fw.s1.t3": "Security compliance",
