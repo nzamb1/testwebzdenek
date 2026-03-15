@@ -9,7 +9,9 @@ export const translations: Record<Lang, Record<string, string>> = {
     "nav.deployment": "Nasazení",
     "nav.forWhom": "Pro koho",
     "nav.contact": "Kontakt",
-    "nav.cta": "Konzultace zdarma",
+    "nav.cta": "Kontakt",
+    "nav.video": "Video",
+    "nav.demo": "Demo",
 
     // Hero
     "hero.badge": "// B2B AI INFRASTRUCTURE & CONSULTING",
