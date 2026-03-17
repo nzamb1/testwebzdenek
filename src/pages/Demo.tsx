@@ -82,15 +82,16 @@ const Demo = () => {
               onClick={!isPlaying ? handlePlay : undefined}
             >
               <video
+                key={lang}
                 ref={videoRef}
                 className="w-full aspect-video"
                 controls={isPlaying}
                 preload="metadata"
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
-                onEnded={() => setIsPlaying(false)}
+                onEnded={() => { setIsPlaying(false); }}
               >
-                <source src="/videos/demo_preview.mp4" type="video/mp4" />
+                <source src={lang === "cs" ? "/videos/demo_preview.mp4" : "/videos/demo_preview_en.mp4"} type="video/mp4" />
               </video>
               {!isPlaying && (
                 <div className="absolute inset-0 flex items-center justify-center bg-background/30 transition-opacity group-hover:bg-background/10">
