@@ -460,7 +460,9 @@ export const translations: Record<Lang, Record<string, string>> = {
     "demo.title": "AI Assistant Demo",
     "demo.desc": "Interactive demonstration of an AI assistant working over corporate documentation.",
     "demo.back": "Back",
-    "demo.placeholder": "// Demo coming soon",
+    "demo.cta": "Launch demo",
+    "demo.access": "To obtain login credentials, please contact us.",
+    "demo.contact": "Contact us",
 
     // Footer
     "footer.rights": "All rights reserved.",
