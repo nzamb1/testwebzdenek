@@ -1,6 +1,7 @@
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Bot } from "lucide-react";
+import { ArrowLeft, ExternalLink, Lock, MessageCircle, Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import tekinfraLogo from "@/assets/tekinfra-logo.png";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -10,6 +11,15 @@ import flagGb from "@/assets/flag-gb.png";
 const Demo = () => {
   const { lang, setLang, t } = useLanguage();
   const toggleLang = () => setLang(lang === "cs" ? "en" : "cs");
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlay = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background relative">
@@ -23,7 +33,6 @@ const Demo = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-border/30">
         <div className="container mx-auto px-6 flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2">
-
             <img src={tekinfraLogo} alt="TEKINFRA" className="h-[60px]" />
           </Link>
           <div className="flex items-center gap-4">
@@ -44,26 +53,80 @@ const Demo = () => {
         </div>
       </nav>
 
-      {/* Demo content placeholder */}
-      <section className="relative z-10 pt-32 pb-20 flex items-center justify-center min-h-[80vh]">
+      {/* Demo content */}
+      <section className="relative z-10 pt-28 pb-20">
         <div className="container mx-auto px-6">
           <motion.div
-            className="max-w-2xl mx-auto text-center"
+            className="max-w-4xl mx-auto text-center mb-10"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="w-20 h-20 rounded-2xl glass-card glow-primary flex items-center justify-center mx-auto mb-8">
-              <Bot className="w-10 h-10 text-primary" />
-            </div>
             <h1 className="text-3xl md:text-4xl font-bold mb-4">
               {t("demo.title")}
             </h1>
-            <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               {t("demo.desc")}
             </p>
-            <div className="glass-card rounded-2xl p-12 text-muted-foreground">
-              <p className="font-mono text-sm">{t("demo.placeholder")}</p>
+          </motion.div>
+
+          {/* Video */}
+          <motion.div
+            className="max-w-4xl mx-auto mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            <div
+              className="glass-card rounded-2xl overflow-hidden glow-primary relative group cursor-pointer"
+              onClick={!isPlaying ? handlePlay : undefined}
+            >
+              <video
+                ref={videoRef}
+                className="w-full aspect-video"
+                controls={isPlaying}
+                preload="metadata"
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+                onEnded={() => setIsPlaying(false)}
+              >
+                <source src="/videos/demo_preview.mp4" type="video/mp4" />
+              </video>
+              {!isPlaying && (
+                <div className="absolute inset-0 flex items-center justify-center bg-background/30 transition-opacity group-hover:bg-background/10">
+                  <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/40 group-hover:scale-110 transition-transform">
+                    <Play className="w-9 h-9 text-primary-foreground ml-1" fill="currentColor" />
+                  </div>
+                </div>
+              )}
+            </div>
+          </motion.div>
+
+          {/* CTA + access info */}
+          <motion.div
+            className="max-w-2xl mx-auto text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
+            <Button size="lg" className="text-base px-8 py-6 bg-info hover:bg-info/90 text-info-foreground shadow-lg shadow-info/20 mb-8" asChild>
+              <a href="http://52.28.230.0/" target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="mr-2 w-5 h-5" />
+                {t("demo.cta")}
+              </a>
+            </Button>
+
+            <div className="glass-card rounded-2xl p-8 text-center">
+              <Lock className="w-8 h-8 text-primary mx-auto mb-4" />
+              <p className="text-muted-foreground mb-6">
+                {t("demo.access")}
+              </p>
+              <Button size="sm" className="glow-primary" asChild>
+                <a href="/#contact">
+                  <MessageCircle className="mr-2 w-4 h-4" />
+                  {t("demo.contact")}
+                </a>
+              </Button>
             </div>
           </motion.div>
         </div>

@@ -227,7 +227,9 @@ export const translations: Record<Lang, Record<string, string>> = {
     "demo.title": "Demo AI asistenta",
     "demo.desc": "Interaktivní ukázka AI asistenta pracujícího nad firemní dokumentací.",
     "demo.back": "Zpět",
-    "demo.placeholder": "// Demo bude brzy k dispozici",
+    "demo.cta": "Spustit demo",
+    "demo.access": "Pro získání přístupových údajů (login/heslo) nás prosím kontaktujte.",
+    "demo.contact": "Kontaktujte nás",
 
     // Footer
     "footer.rights": "Všechna práva vyhrazena.",
@@ -458,7 +460,9 @@ export const translations: Record<Lang, Record<string, string>> = {
     "demo.title": "AI Assistant Demo",
     "demo.desc": "Interactive demonstration of an AI assistant working over corporate documentation.",
     "demo.back": "Back",
-    "demo.placeholder": "// Demo coming soon",
+    "demo.cta": "Launch demo",
+    "demo.access": "To obtain login credentials, please contact us.",
+    "demo.contact": "Contact us",
 
     // Footer
     "footer.rights": "All rights reserved.",
