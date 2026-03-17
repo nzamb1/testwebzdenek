@@ -225,7 +225,7 @@ export const translations: Record<Lang, Record<string, string>> = {
 
     // Demo
     "demo.title": "Demo AI asistenta",
-    "demo.desc": "Interaktivní ukázka AI asistenta pracujícího nad firemní dokumentací.",
+    "demo.desc": "Ukázka interní AI pracující nad vlastními daty.",
     "demo.back": "Zpět",
     "demo.cta": "Spustit demo",
     "demo.access": "Pro získání přístupových údajů (login/heslo) nás prosím kontaktujte.",
