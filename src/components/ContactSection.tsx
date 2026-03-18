@@ -37,16 +37,18 @@ const ContactSection = () => {
 
       // In no-cors mode, response is opaque (status 0) — treat as success
       if (res.type === "opaque" || res.ok) {
+        toast({
+          title: t("ct.toastSuccessTitle") || "Zpráva odeslána",
+          description: t("ct.toastSuccessDesc") || "Děkujeme, ozveme se vám co nejdříve.",
+        });
 
-      toast({
-        title: t("ct.toastSuccessTitle") || "Zpráva odeslána",
-        description: t("ct.toastSuccessDesc") || "Děkujeme, ozveme se vám co nejdříve.",
-      });
-
-      setName("");
-      setEmail("");
-      setCompany("");
-      setMessage("");
+        setName("");
+        setEmail("");
+        setCompany("");
+        setMessage("");
+      } else {
+        throw new Error("Request failed");
+      }
     } catch {
       toast({
         title: t("ct.toastErrorTitle") || "Chyba při odesílání",
