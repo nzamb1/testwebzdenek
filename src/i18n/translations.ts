@@ -231,8 +231,8 @@ export const translations: Record<Lang, Record<string, string>> = {
     "demo.cta": "Spustit demo",
     "demo.access": "Pro získání přístupových údajů (login/heslo) nás prosím kontaktujte.",
     "demo.contact": "Kontaktujte nás",
-     "demo.unavailable.title": "Demo není momentálně dostupné",
-     "demo.unavailable.desc": "Hardware, na kterém demo běží, není permanentně spuštěn. Pokud máte zájem o předvedení, prosíme, kontaktujte nás – rádi vám demo spustíme.",
+     "demo.unavailable.title": "Demo spustíme pro vás na vyžádání",
+     "demo.unavailable.desc": "Hardware, na kterém demo běží, nenecháváme zapnutý trvale. Pokud máte zájem o ukázku, kontaktujte nás a demo pro vás rádi spustíme.",
      "demo.unavailable.ok": "Rozumím",
     "demo.checking": "Ověřuji dostupnost…",
 
@@ -469,8 +469,8 @@ export const translations: Record<Lang, Record<string, string>> = {
     "demo.cta": "Launch demo",
     "demo.access": "To obtain login credentials, please contact us.",
     "demo.contact": "Contact us",
-     "demo.unavailable.title": "Demo currently unavailable",
-     "demo.unavailable.desc": "The hardware running the demo is not permanently online. If you'd like a demonstration, please contact us — we'll be happy to start it for you.",
+     "demo.unavailable.title": "Demo available on request",
+     "demo.unavailable.desc": "We don't keep the demo hardware running permanently. If you're interested in a demonstration, contact us and we'll be happy to start it for you.",
      "demo.unavailable.ok": "OK",
     "demo.checking": "Checking availability…",
 
