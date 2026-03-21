@@ -186,11 +186,9 @@ const Demo = () => {
             <DialogDescription>{t("demo.unavailable.desc")}</DialogDescription>
           </DialogHeader>
           <div className="flex justify-end gap-3 pt-2">
-            <Button size="sm" className="glow-primary" asChild>
-              <a href="/#contact">
+            <Button size="sm" className="glow-primary" onClick={goToContact}>
                 <MessageCircle className="mr-2 w-4 h-4" />
                 {t("demo.contact")}
-              </a>
             </Button>
             <Button size="sm" variant="outline" onClick={() => setShowUnavailable(false)}>
               {t("demo.unavailable.ok")}
