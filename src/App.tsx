@@ -5,7 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import Index from "./pages/Index";
-import Landing from "./pages/Landing";
+import Landing1 from "./pages/Landing1";
+import Landing2 from "./pages/Landing2";
 import Demo from "./pages/Demo";
 import NotFound from "./pages/NotFound";
 
