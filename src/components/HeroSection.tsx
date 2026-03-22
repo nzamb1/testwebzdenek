@@ -65,9 +65,6 @@ const HeroSection = () => {
           </h1>
 
           {/* Description */}
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-            {t("landing.desc")}
-          </p>
         </motion.div>
 
         {/* Video */}
