@@ -81,9 +81,6 @@ const Landing2 = () => {
               {t("landing.title1")}{" "}
               <span className="gradient-text">{t("landing.title2")}</span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              {t("landing.desc")}
-            </p>
           </motion.div>
 
           {/* Video - placeholder, will be replaced with new video */}
