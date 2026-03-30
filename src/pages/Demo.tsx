@@ -19,6 +19,11 @@ import {
 const DEMO_URL = "http://52.28.230.0/";
 
 const Demo = () => {
+  usePageMeta({
+    title: "TekInfra Demo — vyzkoušejte interní AI na živo",
+    description: "Vyzkoušejte si interní AI Copilot od TEKINFRA. Živá demo ukázka AI asistenta pro práci s firemními daty.",
+    canonical: "https://testwebzdenek.lovable.app/demo",
+  });
   const { lang, setLang, t } = useLanguage();
   const navigate = useNavigate();
   const toggleLang = () => setLang(lang === "cs" ? "en" : "cs");
