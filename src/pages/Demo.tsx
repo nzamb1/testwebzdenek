@@ -6,6 +6,7 @@ import { ArrowLeft, ExternalLink, Lock, MessageCircle, Play, Loader2 } from "luc
 import { Link } from "react-router-dom";
 import tekinfraLogo from "@/assets/tekinfra-logo.png";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import flagCz from "@/assets/flag-cz.png";
 import flagGb from "@/assets/flag-gb.png";
 import {

@@ -17,6 +17,12 @@ import Footer from "@/components/Footer";
 const Index = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
+  usePageMeta({
+    title: "TekInfra — interní AI pro vaše data",
+    description: "Interní AI jako konkurenční výhoda. Bezpečnost a ochrana vašich dat. AI infrastruktura a poradenství od TEKINFRA.",
+    canonical: "https://testwebzdenek.lovable.app/",
+  });
+
   useEffect(() => {
     const scrollTo = searchParams.get("scrollTo");
     if (scrollTo) {
