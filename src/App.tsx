@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Landing1 from "./pages/Landing1";
 import Landing2 from "./pages/Landing2";
 import Demo from "./pages/Demo";
+import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
