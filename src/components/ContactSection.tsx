@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { toast } from "@/hooks/use-toast";
+import { fireSeznamConversion } from "@/hooks/useCookieConsent";
 
 const ContactSection = () => {
   const { t } = useLanguage();
@@ -37,6 +38,7 @@ const ContactSection = () => {
 
       // In no-cors mode, response is opaque (status 0) — treat as success
       if (res.type === "opaque" || res.ok) {
+        fireSeznamConversion();
         toast({
           title: t("ct.toastSuccessTitle") || "Zpráva odeslána",
           description: t("ct.toastSuccessDesc") || "Děkujeme, ozveme se vám co nejdříve.",
