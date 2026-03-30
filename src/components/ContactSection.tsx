@@ -38,6 +38,7 @@ const ContactSection = () => {
 
       // In no-cors mode, response is opaque (status 0) — treat as success
       if (res.type === "opaque" || res.ok) {
+        fireSeznamConversion();
         toast({
           title: t("ct.toastSuccessTitle") || "Zpráva odeslána",
           description: t("ct.toastSuccessDesc") || "Děkujeme, ozveme se vám co nejdříve.",
