@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Monitor, MessageCircle } from "lucide-react";
+import { ArrowRight, Monitor, MessageCircle, Sun, Moon } from "lucide-react";
 import { Link } from "react-router-dom";
 import tekinfraLogo from "@/assets/tekinfra-logo.png";
 import blogImage from "@/assets/blog-copilot-screenshot.jpg";
@@ -8,6 +8,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import flagCz from "@/assets/flag-cz.png";
 import flagGb from "@/assets/flag-gb.png";
+import { useTheme } from "@/hooks/useTheme";
 
 const Blog = () => {
   usePageMeta({
@@ -17,6 +18,7 @@ const Blog = () => {
   });
   const { lang, setLang, t } = useLanguage();
   const toggleLang = () => setLang(lang === "cs" ? "en" : "cs");
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div className="min-h-screen bg-background relative">
@@ -45,6 +47,13 @@ const Blog = () => {
             >
               {t("landing.ctaDemo")}
             </Link>
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-md border border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors"
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
             <button
               onClick={toggleLang}
               className="px-3 py-1.5 rounded-md text-xs font-mono font-semibold border border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors flex items-center gap-1.5"
@@ -76,7 +85,7 @@ const Blog = () => {
               Jak jsme s interní AI ušetřili čas při správě firemních dat?
             </h1>
 
-            <div className="prose prose-invert prose-lg max-w-none space-y-6 text-muted-foreground">
+            <div className="prose prose-lg max-w-none space-y-6 text-muted-foreground dark:prose-invert">
               <p>
                 Firmy dnes často neztrácí čas na složitých úkolech, ale na opakovaném dohledávání informací,
                 přepisování podkladů a odpovídání na stále stejné interní dotazy. Právě tady dnes dává smysl
