@@ -9,6 +9,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import flagCz from "@/assets/flag-cz.png";
 import flagGb from "@/assets/flag-gb.png";
+import { useTheme } from "@/hooks/useTheme";
 import {
   Dialog,
   DialogContent,
