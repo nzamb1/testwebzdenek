@@ -1,5 +1,7 @@
 import tekinfraLogo from "@/assets/tekinfra-logo.png";
+import tekinfraLogoLight from "@/assets/tekinfra-logo-light.png";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useTheme } from "@/hooks/useTheme";
 
 const Footer = () => {
   const { t } = useLanguage();
