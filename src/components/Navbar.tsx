@@ -98,6 +98,13 @@ const Navbar = () => {
                 </Link>
               </Button>
               <button
+                onClick={toggleTheme}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 text-left flex items-center gap-2"
+              >
+                {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+                {theme === "dark" ? (lang === "cs" ? "Světlý režim" : "Light mode") : (lang === "cs" ? "Tmavý režim" : "Dark mode")}
+              </button>
+              <button
                 onClick={toggleLang}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 text-left font-mono flex items-center gap-2"
               >
