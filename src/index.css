@@ -48,6 +48,50 @@
     --sidebar-border: 220 18% 16%;
     --sidebar-ring: 165 82% 51%;
   }
+
+  .light {
+    --background: 0 0% 98%;
+    --foreground: 220 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 12%;
+
+    --primary: 165 82% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 92%;
+    --secondary-foreground: 220 25% 12%;
+
+    --muted: 220 14% 95%;
+    --muted-foreground: 215 14% 40%;
+
+    --accent: 270 60% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --info: 210 100% 50%;
+    --info-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 87%;
+    --input: 220 13% 87%;
+    --ring: 165 82% 38%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 220 25% 12%;
+    --sidebar-primary: 165 82% 38%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 92%;
+    --sidebar-accent-foreground: 220 25% 12%;
+    --sidebar-border: 220 13% 87%;
+    --sidebar-ring: 165 82% 38%;
+  }
 }
 
 @layer base {
@@ -75,8 +119,17 @@
     background-image: linear-gradient(135deg, hsl(165 82% 51%), hsl(270 60% 60%));
   }
 
+  .light .gradient-text {
+    background-image: linear-gradient(135deg, hsl(165 82% 35%), hsl(270 60% 50%));
+  }
+
   .glass-card {
     @apply bg-card/60 backdrop-blur-xl border border-border/50;
+  }
+
+  .light .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/60;
+    box-shadow: 0 1px 3px hsl(220 13% 70% / 0.15);
   }
 
   .glow-primary {
@@ -86,6 +139,11 @@
   .glow-accent {
     box-shadow: 0 0 40px -10px hsl(270 60% 60% / 0.3);
   }
+}
+
+/* Hide starfield in light mode */
+.light .starfield {
+  display: none;
 }
 
 /* Starfield background */
