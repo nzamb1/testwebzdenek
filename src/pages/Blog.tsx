@@ -138,7 +138,19 @@ const Blog = () => {
                 z jakých souborů vycházel. Firma tak získává nejen rychlost, ale i ověřitelnost.
               </p>
 
-              <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">
+              {/* Screenshot 2 – správa dokumentů */}
+              <div className="glass-card rounded-2xl overflow-hidden my-10">
+                <img
+                  src={blogImage2}
+                  alt="Správa firemních dokumentů v interním AI systému"
+                  className="w-full"
+                  loading="lazy"
+                />
+                <p className="text-sm text-muted-foreground/70 px-6 py-4 italic">
+                  Přehled firemních dokumentů s organizací do kolekcí a možností okamžitého dotazování nad jejich obsahem.
+                </p>
+              </div>
+
                 Proč je bezpečnost klíčová
               </h2>
               <p>
