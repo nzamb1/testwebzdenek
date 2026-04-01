@@ -37,12 +37,12 @@ const LightModeParticles = () => {
 
     // Cosmic dust – many tiny teal & purple specks
     const dustColors = [
-      "hsl(165 82% 51% / 0.35)",
-      "hsl(165 82% 45% / 0.3)",
-      "hsl(270 60% 60% / 0.3)",
-      "hsl(270 60% 55% / 0.25)",
-      "hsl(165 82% 51% / 0.2)",
-      "hsl(270 60% 60% / 0.2)",
+      "hsl(165 82% 51% / 0.55)",
+      "hsl(165 82% 45% / 0.5)",
+      "hsl(270 60% 60% / 0.5)",
+      "hsl(270 60% 55% / 0.45)",
+      "hsl(165 82% 51% / 0.4)",
+      "hsl(270 60% 60% / 0.4)",
     ];
     const dust = Array.from({ length: 60 }, (_, i) => ({
       id: 30 + i,
