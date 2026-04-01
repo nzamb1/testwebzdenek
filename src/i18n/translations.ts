@@ -247,7 +247,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     "blog.h2.1": "Kde dnes firmy nejčastěji ztrácí čas",
     "blog.p2": "Největší prodlevy vznikají tam, kde lidé musí ručně hledat v e-mailech, dokumentech, směrnicích a přílohách. Místo aby řešili odbornou práci, tráví minuty až hodiny hledáním správné odpovědi, ověřováním verzí a přípravou podkladů. Interní AI dokáže tento proces zkrátit tím, že pracuje nad firemními daty a vrací relevantní odpověď se zdroji.",
     "blog.h2.2": "Jak to funguje v praxi",
-    "blog.p3": "Uživatel položí přirozený dotaz a interní Copilot projde dostupné dokumenty, vyhodnotí souvislosti a vrátí konkrétní výstup. Důležité je, že nejde jen o „chat" odpověď — systém zároveň ukáže, z jakých souborů vycházel. Firma tak získává nejen rychlost, ale i ověřitelnost.",
+    "blog.p3": "Uživatel položí přirozený dotaz a interní Copilot projde dostupné dokumenty, vyhodnotí souvislosti a vrátí konkrétní výstup. Důležité je, že nejde jen o \u201Echat\u201C odpověď \u2014 systém zároveň ukáže, z jakých souborů vycházel. Firma tak získává nejen rychlost, ale i ověřitelnost.",
     "blog.img2.alt": "Správa firemních dokumentů v interním AI systému",
     "blog.img2.caption": "Přehled firemních dokumentů s organizací do kolekcí a možností okamžitého dotazování nad jejich obsahem.",
     "blog.h2.3": "Proč je bezpečnost klíčová",
