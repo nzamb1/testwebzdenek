@@ -17,11 +17,11 @@ const LightModeParticles = () => {
   const particles = useMemo<Particle[]>(() => {
     // Larger animated particles
     const mainColors = [
-      "hsl(165 82% 51% / 0.25)",
-      "hsl(270 60% 60% / 0.2)",
-      "hsl(210 100% 55% / 0.2)",
-      "hsl(165 82% 45% / 0.15)",
-      "hsl(270 60% 55% / 0.15)",
+      "hsl(165 82% 51% / 0.45)",
+      "hsl(270 60% 60% / 0.4)",
+      "hsl(210 100% 55% / 0.35)",
+      "hsl(165 82% 45% / 0.3)",
+      "hsl(270 60% 55% / 0.3)",
     ];
     const main = Array.from({ length: 30 }, (_, i) => ({
       id: i,
