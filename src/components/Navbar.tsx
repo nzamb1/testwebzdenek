@@ -79,7 +79,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="lg:hidden glass-card border-t border-border/30"
+            className="xl:hidden glass-card border-t border-border/30"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
