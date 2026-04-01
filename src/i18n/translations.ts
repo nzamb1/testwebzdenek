@@ -494,6 +494,26 @@ export const translations: Record<Lang, Record<string, string>> = {
      "demo.unavailable.ok": "OK",
     "demo.checking": "Checking availability…",
 
+    // Blog
+    "blog.tag": "// BLOG",
+    "blog.title": "How we saved time managing corporate data with internal AI",
+    "blog.p1": "Companies today often don't waste time on complex tasks, but on repeatedly searching for information, rewriting documents and answering the same internal questions. This is exactly where internal AI makes sense \u2014 not as a trendy add-on, but as a practical tool for greater efficiency and data security.",
+    "blog.img1.alt": "Internal Copilot demo over corporate documents",
+    "blog.img1.caption": "Internal Copilot working over corporate documents: answers with traceable sources and specific references.",
+    "blog.quote": "\u201CToday we can save companies up to 1/3 of their time and significantly reduce costs. But the biggest benefit isn\u2019t just speed \u2014 what\u2019s crucial is that data stays securely under control.\u201D",
+    "blog.quoteAuthor": "\u2014 Zden\u011Bk Vacul\u00EDk, company owner",
+    "blog.h2.1": "Where companies lose the most time today",
+    "blog.p2": "The biggest delays occur where people have to manually search through emails, documents, guidelines and attachments. Instead of doing expert work, they spend minutes to hours finding the right answer, verifying versions and preparing materials. Internal AI can shorten this process by working over corporate data and returning relevant answers with sources.",
+    "blog.h2.2": "How it works in practice",
+    "blog.p3": "A user asks a natural language question and the internal Copilot searches available documents, evaluates context and returns a specific output. Importantly, it\u2019s not just a \u201Cchat\u201D response \u2014 the system also shows which files it drew from. The company gains not only speed but also verifiability.",
+    "blog.img2.alt": "Corporate document management in an internal AI system",
+    "blog.img2.caption": "Overview of corporate documents organized into collections with the ability to instantly query their content.",
+    "blog.h2.3": "Why security is key",
+    "blog.p4": "When working with corporate data, saving time isn\u2019t enough. It\u2019s equally important that information stays protected, internal and under company control. That\u2019s why internal AI is compelling: companies don\u2019t need to send sensitive materials outside their environment and can precisely control who accesses what. This is a fundamental difference from unmanaged use of public tools.",
+    "blog.h2.4": "Key takeaways",
+    "blog.p5": "Properly deployed internal AI doesn\u2019t just bring a technological novelty. It delivers time savings, higher efficiency and safer work with internal knowledge. And that\u2019s the combination that makes it a real business benefit, not just a passing trend.",
+    "blog.tagline": "Internal AI as a competitive advantage \u2022 Security and protection of your data",
+
     // Footer
     "footer.rights": "All rights reserved.",
   },
