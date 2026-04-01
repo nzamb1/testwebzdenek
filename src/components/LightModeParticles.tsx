@@ -17,17 +17,17 @@ const LightModeParticles = () => {
   const particles = useMemo<Particle[]>(() => {
     // Larger animated particles
     const mainColors = [
-      "hsl(165 82% 51% / 0.45)",
-      "hsl(270 60% 60% / 0.4)",
-      "hsl(210 100% 55% / 0.35)",
-      "hsl(165 82% 45% / 0.3)",
-      "hsl(270 60% 55% / 0.3)",
+      "hsl(165 82% 51% / 0.75)",
+      "hsl(270 60% 60% / 0.7)",
+      "hsl(210 100% 55% / 0.65)",
+      "hsl(165 82% 45% / 0.6)",
+      "hsl(270 60% 55% / 0.6)",
     ];
     const main = Array.from({ length: 30 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
-      size: 2 + Math.random() * 4,
+      size: 3 + Math.random() * 5,
       color: mainColors[i % mainColors.length],
       duration: 12 + Math.random() * 20,
       delay: Math.random() * -20,
@@ -37,18 +37,18 @@ const LightModeParticles = () => {
 
     // Cosmic dust – many tiny teal & purple specks
     const dustColors = [
-      "hsl(165 82% 51% / 0.55)",
-      "hsl(165 82% 45% / 0.5)",
-      "hsl(270 60% 60% / 0.5)",
-      "hsl(270 60% 55% / 0.45)",
-      "hsl(165 82% 51% / 0.4)",
-      "hsl(270 60% 60% / 0.4)",
+      "hsl(165 82% 51% / 0.85)",
+      "hsl(165 82% 45% / 0.8)",
+      "hsl(270 60% 60% / 0.8)",
+      "hsl(270 60% 55% / 0.75)",
+      "hsl(165 82% 51% / 0.7)",
+      "hsl(270 60% 60% / 0.7)",
     ];
-    const dust = Array.from({ length: 60 }, (_, i) => ({
+    const dust = Array.from({ length: 80 }, (_, i) => ({
       id: 30 + i,
       x: Math.random() * 100,
       y: Math.random() * 100,
-      size: 1 + Math.random() * 2,
+      size: 1.5 + Math.random() * 2.5,
       color: dustColors[i % dustColors.length],
       duration: 18 + Math.random() * 25,
       delay: Math.random() * -25,
