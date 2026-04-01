@@ -89,9 +89,9 @@ const Demo = () => {
             </button>
             <button
               onClick={toggleLang}
-              className="px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs font-mono font-semibold border border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors flex items-center gap-1"
+              className="p-1.5 sm:px-3 sm:py-1.5 rounded-md text-xs font-mono font-semibold border border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors flex items-center gap-1.5"
             >
-              <img src={lang === "cs" ? flagGb : flagCz} alt="" className="w-4 h-4 sm:w-5 sm:h-5 rounded-full object-cover" />
+              <img src={lang === "cs" ? flagGb : flagCz} alt="" className="w-5 h-5 min-w-[20px] rounded-full object-cover" />
               <span className="hidden sm:inline">{lang === "cs" ? "EN" : "CZ"}</span>
             </button>
             <Button size="sm" variant="outline" asChild>
