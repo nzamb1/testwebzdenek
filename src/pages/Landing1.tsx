@@ -37,6 +37,7 @@ const Landing = () => {
         <div className="stars-sm" />
         <div className="stars-md" />
         <div className="stars-lg" />
+        {theme === "light" && <LightModeParticles />}
       </div>
 
       {/* Minimal top bar */}
