@@ -236,6 +236,26 @@ export const translations: Record<Lang, Record<string, string>> = {
      "demo.unavailable.ok": "Rozumím",
     "demo.checking": "Ověřuji dostupnost…",
 
+    // Blog
+    "blog.tag": "// BLOG",
+    "blog.title": "Jak jsme s interní AI ušetřili čas při správě firemních dat?",
+    "blog.p1": "Firmy dnes často neztrácí čas na složitých úkolech, ale na opakovaném dohledávání informací, přepisování podkladů a odpovídání na stále stejné interní dotazy. Právě tady dnes dává smysl interní AI — ne jako módní doplněk, ale jako praktický nástroj pro vyšší efektivitu a bezpečnost firemních dat.",
+    "blog.img1.alt": "Ukázka interního Copilotu nad firemními dokumenty",
+    "blog.img1.caption": "Ukázka interního Copilotu nad firemními dokumenty: odpověď s dohledatelnými zdroji a konkrétními podklady.",
+    "blog.quote": "„Dneska už dokážeme firmám až 1/3 času ušetřit a mohou tak výrazně snížit své náklady. Největší přínos ale není jen v rychlosti — zásadní je i to, že data zůstávají bezpečně pod kontrolou."",
+    "blog.quoteAuthor": "— Zdeněk Vaculík, majitel firmy",
+    "blog.h2.1": "Kde dnes firmy nejčastěji ztrácí čas",
+    "blog.p2": "Největší prodlevy vznikají tam, kde lidé musí ručně hledat v e-mailech, dokumentech, směrnicích a přílohách. Místo aby řešili odbornou práci, tráví minuty až hodiny hledáním správné odpovědi, ověřováním verzí a přípravou podkladů. Interní AI dokáže tento proces zkrátit tím, že pracuje nad firemními daty a vrací relevantní odpověď se zdroji.",
+    "blog.h2.2": "Jak to funguje v praxi",
+    "blog.p3": "Uživatel položí přirozený dotaz a interní Copilot projde dostupné dokumenty, vyhodnotí souvislosti a vrátí konkrétní výstup. Důležité je, že nejde jen o „chat" odpověď — systém zároveň ukáže, z jakých souborů vycházel. Firma tak získává nejen rychlost, ale i ověřitelnost.",
+    "blog.img2.alt": "Správa firemních dokumentů v interním AI systému",
+    "blog.img2.caption": "Přehled firemních dokumentů s organizací do kolekcí a možností okamžitého dotazování nad jejich obsahem.",
+    "blog.h2.3": "Proč je bezpečnost klíčová",
+    "blog.p4": "U práce s firemními daty nestačí jen ušetřit čas. Stejně důležité je, aby byly informace chráněné, interní a pod správou firmy. Právě proto je interní AI zajímavá: firmy nemusí posílat citlivé podklady mimo své prostředí a mohou přesně řídit, kdo k čemu přistupuje. To je zásadní rozdíl oproti neřízenému používání veřejných nástrojů.",
+    "blog.h2.4": "Co si z toho odnést",
+    "blog.p5": "Správně nasazená interní AI dnes firmám nepřináší jen technologickou novinku. Přináší úsporu času, vyšší efektivitu a bezpečnější práci s interními znalostmi. A právě to je kombinace, která z ní dělá reálný byznysový přínos, ne jen módní trend.",
+    "blog.tagline": "Interní AI jako konkurenční výhoda • Bezpečnost a ochrana vašich dat",
+
     // Footer
     "footer.rights": "Všechna práva vyhrazena.",
   },
