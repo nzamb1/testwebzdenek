@@ -36,7 +36,6 @@ const Demo = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const goToContact = useCallback(() => {
-    setShowUnavailable(false);
     navigate("/?scrollTo=contact");
   }, [navigate]);
 
