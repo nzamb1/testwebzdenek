@@ -114,7 +114,7 @@ const Demo = () => {
             >
               <video
                 key={lang}
-                ref={f={videoRef}
+                ref={videoRef}
                 className="w-full aspect-video"
                 controls={isPlaying}
                 preload="metadata"
