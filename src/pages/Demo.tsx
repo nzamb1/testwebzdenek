@@ -34,8 +34,6 @@ const Demo = () => {
   const { theme, toggleTheme } = useTheme();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [checking, setChecking] = useState(false);
-  const [showUnavailable, setShowUnavailable] = useState(false);
 
   const goToContact = useCallback(() => {
     setShowUnavailable(false);
