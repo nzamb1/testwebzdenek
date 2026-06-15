@@ -3,7 +3,7 @@ import LightModeParticles from "@/components/LightModeParticles";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ExternalLink, Lock, MessageCircle, Play, Loader2, Sun, Moon } from "lucide-react";
+import { ArrowLeft, ExternalLink, Lock, MessageCircle, Play, Sun, Moon } from "lucide-react";
 import { Link } from "react-router-dom";
 import tekinfraLogo from "@/assets/tekinfra-logo.png";
 import tekinfraLogoLight from "@/assets/tekinfra-logo-light.png";
@@ -12,13 +12,6 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 import flagCz from "@/assets/flag-cz.png";
 import flagGb from "@/assets/flag-gb.png";
 import { useTheme } from "@/hooks/useTheme";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
 
 const DEMO_URL = "http://78.80.87.122/";
 
@@ -34,11 +27,8 @@ const Demo = () => {
   const { theme, toggleTheme } = useTheme();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [checking, setChecking] = useState(false);
-  const [showUnavailable, setShowUnavailable] = useState(false);
 
   const goToContact = useCallback(() => {
-    setShowUnavailable(false);
     navigate("/?scrollTo=contact");
   }, [navigate]);
 
@@ -49,21 +39,9 @@ const Demo = () => {
     }
   };
 
-  const handleLaunchDemo = async (e: React.MouseEvent) => {
+  const handleLaunchDemo = (e: React.MouseEvent) => {
     e.preventDefault();
-    setChecking(true);
-    try {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 5000);
-      await fetch(DEMO_URL, { mode: "no-cors", signal: controller.signal });
-      clearTimeout(timeout);
-      // If fetch didn't throw, the server is reachable
-      window.open(DEMO_URL, "_blank", "noopener,noreferrer");
-    } catch {
-      setShowUnavailable(true);
-    } finally {
-      setChecking(false);
-    }
+    window.open(DEMO_URL, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -167,19 +145,9 @@ const Demo = () => {
               size="lg"
               className="text-base px-8 py-6 bg-info hover:bg-info/90 text-info-foreground shadow-lg shadow-info/20 mb-8"
               onClick={handleLaunchDemo}
-              disabled={checking}
             >
-              {checking ? (
-                <>
-                  <Loader2 className="mr-2 w-5 h-5 animate-spin" />
-                  {t("demo.checking")}
-                </>
-              ) : (
-                <>
-                  <ExternalLink className="mr-2 w-5 h-5" />
-                  {t("demo.cta")}
-                </>
-              )}
+              <ExternalLink className="mr-2 w-5 h-5" />
+              {t("demo.cta")}
             </Button>
 
             <div className="glass-card rounded-2xl p-8 text-center">
@@ -195,25 +163,6 @@ const Demo = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* Unavailable dialog */}
-      <Dialog open={showUnavailable} onOpenChange={setShowUnavailable}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle>{t("demo.unavailable.title")}</DialogTitle>
-            <DialogDescription>{t("demo.unavailable.desc")}</DialogDescription>
-          </DialogHeader>
-          <div className="flex justify-end gap-3 pt-2">
-            <Button size="sm" className="glow-primary" onClick={goToContact}>
-                <MessageCircle className="mr-2 w-4 h-4" />
-                {t("demo.contact")}
-            </Button>
-            <Button size="sm" variant="outline" onClick={() => setShowUnavailable(false)}>
-              {t("demo.unavailable.ok")}
-            </Button>
-          </div>
-        </DialogContent>
-      </Dialog>
     </div>
   );
 };
