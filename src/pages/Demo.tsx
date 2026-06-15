@@ -49,21 +49,9 @@ const Demo = () => {
     }
   };
 
-  const handleLaunchDemo = async (e: React.MouseEvent) => {
+  const handleLaunchDemo = (e: React.MouseEvent) => {
     e.preventDefault();
-    setChecking(true);
-    try {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 5000);
-      await fetch(DEMO_URL, { mode: "no-cors", signal: controller.signal });
-      clearTimeout(timeout);
-      // If fetch didn't throw, the server is reachable
-      window.open(DEMO_URL, "_blank", "noopener,noreferrer");
-    } catch {
-      setShowUnavailable(true);
-    } finally {
-      setChecking(false);
-    }
+    window.open(DEMO_URL, "_blank", "noopener,noreferrer");
   };
 
   return (
