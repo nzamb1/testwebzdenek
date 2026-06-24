@@ -118,9 +118,10 @@ const ContactSection = () => {
               <Button size="lg" className="w-full py-6 glow-primary" type="submit" disabled={isLoading}>
                 {isLoading ? (t("ct.sending") || "Odesílání...") : t("ct.submit")}
               </Button>
-              <p className="text-xs text-muted-foreground text-center leading-relaxed">
+              <p className="text-sm text-muted-foreground text-center leading-relaxed pt-1">
                 {t("ct.gdpr")}
               </p>
+
             </form>
 
           </motion.div>
