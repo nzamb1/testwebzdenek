@@ -211,6 +211,8 @@ export const translations: Record<Lang, Record<string, string>> = {
     "ct.phoneLabel": "Telefon",
     "ct.addressLabel": "Adresa",
     "ct.address": "TEKINFRA, s.r.o. | IČ: 04356187\nZakšínská 611/3, Praha 9\nČeská republika",
+    "ct.gdpr": "Odesláním souhlasíte se zpracováním osobních údajů společností TEKINFRA, s.r.o. výhradně pro účely odpovědi na váš dotaz. Údaje nebudeme předávat třetím stranám ani uchovávat déle, než je nezbytné.",
+
 
     // Landing
     "landing.tag": "// PODÍVEJTE SE, JAK TO FUNGUJE",
