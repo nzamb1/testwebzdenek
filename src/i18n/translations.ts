@@ -471,6 +471,8 @@ export const translations: Record<Lang, Record<string, string>> = {
     "ct.phoneLabel": "Phone",
     "ct.addressLabel": "Address",
     "ct.address": "TEKINFRA, s.r.o. | IČ: 04356187\nZakšínská 611/3, Prague 9\nCzech Republic",
+    "ct.gdpr": "By submitting, you agree to the processing of your personal data by TEKINFRA, s.r.o. solely for the purpose of responding to your inquiry. We will not share your data with third parties or keep it longer than necessary.",
+
 
     // Landing
     "landing.tag": "// SEE HOW IT WORKS",
