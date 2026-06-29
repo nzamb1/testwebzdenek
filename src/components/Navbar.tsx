@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import tekinfraLogo from "@/assets/tekinfra-logo.png";
 import tekinfraLogoLight from "@/assets/tekinfra-logo-light.png";
 import flagCz from "@/assets/flag-cz.png";
@@ -14,13 +14,16 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { lang, setLang, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+  const sectionHref = (id: string) => (isHome ? `#${id}` : `/#${id}`);
 
   const navLinks = [
-    { label: t("nav.about"), href: "#about" },
-    { label: t("nav.howItWorks"), href: "#how-it-works" },
-    { label: t("nav.technology"), href: "#technology" },
-    { label: t("nav.deployment"), href: "#deployment" },
-    { label: t("nav.forWhom"), href: "#use-cases" },
+    { label: t("nav.about"), href: sectionHref("about") },
+    { label: t("nav.howItWorks"), href: sectionHref("how-it-works") },
+    { label: t("nav.technology"), href: sectionHref("technology") },
+    { label: t("nav.deployment"), href: sectionHref("deployment") },
+    { label: t("nav.forWhom"), href: sectionHref("use-cases") },
   ];
 
   const toggleLang = () => setLang(lang === "cs" ? "en" : "cs");
